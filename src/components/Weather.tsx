@@ -41,7 +41,7 @@ export function Weather() {
 
     return (
       <>
-        <p className='greeting'>{greeting()}</p>
+        <p className='serif'>{greeting()}</p>
         <div className="weather d-grid">
           <div className="d-grid main">
             <div className="icon">

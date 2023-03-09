@@ -16,8 +16,6 @@ $gradient-2: radial-gradient(circle at 30% 0%, #645485, transparent 180%);
 
 html {
   height: 100%;
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
   color: var(--color-dark);
 
   --color-light: hsl(238deg 45% 98%);
@@ -27,6 +25,8 @@ html {
 }
 
 body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
   margin: 0;
   min-height: 100%;
   // background: $gradient-2;
@@ -86,7 +86,7 @@ strong {
   align-items: center;
 }
 
-.greeting {
+.serif {
   font-family: 'Roboto Slab', serif;
   font-size: 20px;
   white-space: pre;
@@ -127,4 +127,45 @@ strong {
   font-size: 0.875em;
   font-weight: 400;
   color: var(--color-medium);
+}
+
+.focus {
+  display: grid;
+  gap: 16px;
+
+  .user-input {
+    position: relative;
+
+    input {
+      font: inherit;
+      font-weight: 400;
+      width: 100%;
+      padding: 4px;
+      border: 0;
+      border-bottom: 1px solid var(--color-medium);
+      background: transparent;
+
+      &::placeholder {
+        color: var(--color-medium);
+      }
+    }
+
+    button {
+      font-size: 20px;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      border: 0;
+      padding: 2px 4px;
+      background-color: transparent;
+      color: var(--color-medium);
+      display: none;
+      cursor: pointer;
+    }
+
+    &:hover > input:not(:placeholder-shown) + button {
+      display: block;
+    }
+  }
+
 }

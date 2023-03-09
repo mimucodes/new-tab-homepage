@@ -1,4 +1,5 @@
 import { DateTime } from './components/DateTime';
+import { Focus } from './components/Focus';
 import { Weather } from './components/Weather';
 
 export default function App() {
@@ -6,6 +7,7 @@ export default function App() {
     <div className="container d-grid">
       <DateTime />
       <Weather />
+      <Focus />
       <svg id="gradient" xmlns="http://www.w3.org/2000/svg">
         <filter id="noise">
           <feTurbulence
