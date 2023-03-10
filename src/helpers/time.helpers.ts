@@ -21,6 +21,8 @@ export function getTime(date: Date) {
   }).format(date)
 }
 
+// TODO replace hardcoded username
+
 export function greeting() {
   let timeOfDay = "day";
   let username = 'moni'

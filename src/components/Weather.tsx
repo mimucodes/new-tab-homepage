@@ -16,7 +16,6 @@ export function Weather() {
   const { enabled, location } = useGeolocation();
   let current: string = '';
   const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
-  console.log(apiKey);
 
   if (enabled && location) {
     current = `https://api.openweathermap.org/data/2.5/weather?lat=${location?.latitude}&lon=${location?.longitude}&appid=${apiKey}`;
@@ -38,6 +37,8 @@ export function Weather() {
       currentWeather.sys.sunrise,
       currentWeather.sys.sunset
     );
+
+    // TODO separate greeting from weather
 
     return (
       <>

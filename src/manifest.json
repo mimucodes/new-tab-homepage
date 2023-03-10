@@ -1,0 +1,11 @@
+{
+  "name": "New Tab Homepage",
+  "version": "1.0",
+  "description": "custom new tab page",
+  "manifest_version": 3,
+  "author": "Monica Gabriel",
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  },
+  "permissions":      ["geolocation"]
+}
