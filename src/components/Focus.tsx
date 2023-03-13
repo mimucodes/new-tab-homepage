@@ -15,7 +15,9 @@ export function Focus() {
             setFocus(event.target.value);
           }}
         />
-        <button onClick={() => setFocus('')}><span aria-hidden="true">×</span></button>
+        <button onClick={() => setFocus('')}>
+          <span aria-hidden="true">×</span>
+        </button>
       </div>
     </div>
   );

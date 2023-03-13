@@ -14,8 +14,16 @@ $gradient-2: radial-gradient(circle at 30% 0%, #645485, transparent 180%);
   align-items: center;
 }
 
-html {
+* {
+  margin: 0;
+}
+
+html,
+body {
   height: 100%;
+}
+
+html {
   color: var(--color-dark);
 
   --color-light: hsl(238deg 45% 98%);
@@ -25,26 +33,15 @@ html {
 }
 
 body {
+  -webkit-font-smoothing: antialiased;
   font-family: 'Inter', sans-serif;
   font-weight: 600;
-  margin: 0;
-  min-height: 100%;
-  // background: $gradient-2;
+  font-size: 100%;
   background-color: var(--color-light);
   position: relative;
   overflow: hidden;
 
   @include center;
-
-  /*   &::after {
-    content: '';
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    filter: url(#noise) brightness(220%);
-    opacity: 0.28;
-    pointer-events: none;
-  } */
 }
 
 #gradient {
@@ -89,7 +86,6 @@ strong {
 .serif {
   font-family: 'Roboto Slab', serif;
   font-size: 20px;
-  white-space: pre;
   text-align: center;
 }
 
@@ -132,40 +128,61 @@ strong {
 .focus {
   display: grid;
   gap: 16px;
+}
 
-  .user-input {
-    position: relative;
+.user-input {
+  position: relative;
+  overflow: hidden;
 
-    input {
-      font: inherit;
-      font-weight: 400;
-      width: 100%;
-      padding: 4px;
-      border: 0;
-      border-bottom: 1px solid var(--color-medium);
-      background: transparent;
+  input {
+    font: inherit;
+    font-weight: 400;
+    color: inherit;
+    width: 100%;
+    padding: 4px 0;
+    border: 0;
+    border-bottom: 1px solid var(--color-medium);
+    background: transparent;
 
-      &::placeholder {
-        color: var(--color-medium);
-      }
-    }
-
-    button {
-      font-size: 20px;
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      border: 0;
-      padding: 2px 4px;
-      background-color: transparent;
+    &::placeholder {
       color: var(--color-medium);
-      display: none;
-      cursor: pointer;
     }
 
-    &:hover > input:not(:placeholder-shown) + button {
-      display: block;
+    &:focus {
+      border-bottom: 1px solid var(--color-primary);
+      outline: 0;
     }
   }
 
+  button {
+    font-size: 20px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border: 0;
+    padding: 2px;
+    background-color: transparent;
+    color: var(--color-medium);
+    display: none;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--color-dark);
+    }
+  }
+
+  &:hover>input:not(:placeholder-shown)+button {
+    display: block;
+  }
+}
+
+input[name="username"] {
+  width: auto;
+  padding: 0;
+
+  &:not(:placeholder-shown) {
+    border: 0;
+    font-weight: inherit;
+    padding: 0;
+  }
 }

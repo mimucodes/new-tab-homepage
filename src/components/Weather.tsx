@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { greeting, unixtime } from '../helpers/time.helpers';
+import { unixtime } from '../helpers/time.helpers';
 import {
   isDaytime,
   formatTemperature,
@@ -10,6 +10,7 @@ import {
 import { useFetch } from '../hooks/use-fetch';
 import { useGeolocation } from '../hooks/use-geolocation';
 import { WeatherInfo } from '../types/weather.types';
+import { Greeting } from './Greeting';
 import { WeatherIcon } from './WeatherIcons';
 
 export function Weather() {
@@ -38,11 +39,9 @@ export function Weather() {
       currentWeather.sys.sunset
     );
 
-    // TODO separate greeting from weather
-
     return (
       <>
-        <p className='serif'>{greeting()}</p>
+        <Greeting />
         <div className="weather d-grid">
           <div className="d-grid main">
             <div className="icon">
