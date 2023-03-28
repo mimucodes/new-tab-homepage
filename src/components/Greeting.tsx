@@ -1,9 +1,22 @@
+import { useEffect, useRef, useState } from 'react';
 import { useLocalStorage } from '../hooks/use-local-storage';
 
 const hours = new Date().getHours();
 
 export function Greeting() {
   const [username, setUsername] = useLocalStorage('name', '');
+  const [width, setWidth] = useState(0);
+  const spanRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    if (spanRef.current !== null) {
+      if (!spanRef.current.textContent) {
+        setWidth(57);
+      } else {
+        setWidth(spanRef.current.offsetWidth);
+      }
+    }
+  }, [username]);
 
   let greeting =
     hours >= 5 && hours < 12
@@ -12,11 +25,12 @@ export function Greeting() {
       ? 'good afternoon'
       : 'good evening';
 
-  const inputWidth = username ? `${username.length + 1}ch` : '5ch';
-
   return (
     <p className='serif'>
       {greeting}{' '}
+      <span className="helper" ref={spanRef}>
+        {username}
+      </span>
       <span className="user-input">
         <input
           type="text"
@@ -24,7 +38,7 @@ export function Greeting() {
           placeholder="friend"
           value={username}
           onChange={event => setUsername(event.target.value)}
-          style={{ width: inputWidth }}
+          style={{ width }}
           spellCheck="false"
         ></input>
       </span>

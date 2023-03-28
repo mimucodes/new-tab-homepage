@@ -1,11 +1,10 @@
-import React, { useEffect, useRef } from 'react';
 import { unixtime } from '../helpers/time.helpers';
 import {
   isDaytime,
   formatTemperature,
   formatPressure,
   formatWind,
-  formatHumidity
+  formatHumidity,
 } from '../helpers/weather.helpers';
 import { useFetch } from '../hooks/use-fetch';
 import { useGeolocation } from '../hooks/use-geolocation';
@@ -25,14 +24,11 @@ export function Weather() {
   const { status: currentStatus, data: currentWeather } =
     useFetch<WeatherInfo>(current);
 
-
   if (currentStatus === 'fetching') {
     return <p>loading...</p>;
   }
 
   if (currentWeather) {
-    console.log(currentWeather);
-
     const daytime = isDaytime(
       unixtime,
       currentWeather.sys.sunrise,
@@ -51,20 +47,22 @@ export function Weather() {
               />
             </div>
             <div className="info">
-              <p className="temperature">{formatTemperature(currentWeather.main.temp)}</p>
+              <p className="temperature">
+                {formatTemperature(currentWeather.main.temp)}
+              </p>
               <p>{currentWeather.weather[0].description}</p>
             </div>
           </div>
           <div className="pressure">
-            <p className='label'>pressure</p>
+            <p className="label">pressure</p>
             {formatPressure(currentWeather.main.pressure)}
           </div>
           <div className="wind">
-            <p className='label'>wind</p>
+            <p className="label">wind</p>
             {formatWind(currentWeather.wind.deg, currentWeather.wind.speed)}
           </div>
           <div className="humidity">
-            <p className='label'>humidity</p>
+            <p className="label">humidity</p>
             {formatHumidity(currentWeather.main.humidity)}
           </div>
         </div>

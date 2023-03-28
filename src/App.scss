@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap');
 
-$gradient-1: radial-gradient(circle at 89% 15%, #ff9900, transparent 26%),
-  radial-gradient(circle at 53.91% 44%, #ff3b41, transparent 62%),
-  radial-gradient(circle at 11% 86%, #ff9900, transparent 38%),
-  radial-gradient(circle at 56% 49%, #ff4da6, transparent 100%),
-  radial-gradient(circle at 50% 50%, #ffffff, #ffffff 100%);
-
-$gradient-2: radial-gradient(circle at 30% 0%, #645485, transparent 180%);
-
 @mixin center {
   display: flex;
   justify-content: center;
@@ -42,10 +34,6 @@ body {
   overflow: hidden;
 
   @include center;
-}
-
-#gradient {
-  display: none;
 }
 
 p {
@@ -130,6 +118,11 @@ strong {
   gap: 16px;
 }
 
+.helper {
+  position: absolute;
+  opacity: 0;
+}
+
 .user-input {
   position: relative;
   overflow: hidden;
@@ -157,7 +150,7 @@ strong {
   button {
     font-size: 20px;
     position: absolute;
-    right: 0;
+    right: -4px;
     bottom: 0;
     border: 0;
     padding: 2px;
