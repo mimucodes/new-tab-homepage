@@ -1,7 +1,7 @@
 {
-  "name": "New Tab Homepage",
-  "version": "1.0",
-  "description": "custom new tab page",
+  "name": "New Tab",
+  "version": "1.0.0",
+  "description": "new tab replacement with weather info",
   "manifest_version": 3,
   "author": "Monica Gabriel",
   "chrome_url_overrides": {
