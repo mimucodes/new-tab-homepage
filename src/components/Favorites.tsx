@@ -1,38 +1,38 @@
-import { Modal } from './Modal';
-import { useModal } from '../hooks/use-modal';
-import { useLocalStorage } from '../hooks/use-local-storage';
-import { getFavicon } from '../helpers/bookmark.helpers';
+import { Modal } from './Modal'
+import { useModal } from '../hooks/use-modal'
+import { useLocalStorage } from '../hooks/use-local-storage'
+import { getFavicon } from '../helpers/bookmark.helpers'
 
 type SiteBookmark = {
-  title: string;
-  url: string;
-  uuid: string;
-};
+  title: string
+  url: string
+  uuid: string
+}
 
 export function Favorites() {
-  const [sites, setSites] = useLocalStorage('user-sites', '');
-  const { isOpen, toggle } = useModal();
+  const [sites, setSites] = useLocalStorage('user-sites', '')
+  const { isOpen, toggle } = useModal()
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault()
 
     const target = e.target as typeof e.target & {
-      title: { value: string };
-      url: { value: string };
-    };
+      title: { value: string }
+      url: { value: string }
+    }
 
-    const title = target.title.value;
-    const url = target.url.value;
+    const title = target.title.value
+    const url = target.url.value
 
-    setSites([...sites, { title: title, url: url, uuid: crypto.randomUUID() }]);
+    setSites([...sites, { title: title, url: url, uuid: crypto.randomUUID() }])
 
-    toggle();
-  };
+    toggle()
+  }
 
   const handleDelete = (id: string) => {
-    const newList = sites.filter((item: SiteBookmark) => item.uuid !== id);
-    setSites(newList);
-  };
+    const newList = sites.filter((item: SiteBookmark) => item.uuid !== id)
+    setSites(newList)
+  }
 
   const bookmarks =
     sites &&
@@ -63,7 +63,7 @@ export function Favorites() {
           </svg>
         </div>
       </li>
-    ));
+    ))
 
   return (
     <section id="bookmarks">
@@ -94,13 +94,13 @@ export function Favorites() {
         </form>
       </Modal>
     </section>
-  );
+  )
 }
 
 type AddButtonProps = {
-  hide: boolean;
-  onClick: () => void;
-};
+  hide: boolean
+  onClick: () => void
+}
 
 function AddButton(props: AddButtonProps) {
   return (
@@ -121,5 +121,5 @@ function AddButton(props: AddButtonProps) {
         ></path>
       </svg>
     </button>
-  );
+  )
 }

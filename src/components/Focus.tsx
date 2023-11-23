@@ -1,20 +1,20 @@
-import { useEffect, useRef, useState } from 'react';
-import { useLocalStorage } from '../hooks/use-local-storage';
+import { useEffect, useRef, useState } from 'react'
+import { useLocalStorage } from '../hooks/use-local-storage'
 
 export function Focus() {
-  const [focus, setFocus] = useLocalStorage('focus', '');
-  const [width, setWidth] = useState(0);
-  const spanRef = useRef<HTMLSpanElement>(null);
+  const [focus, setFocus] = useLocalStorage('focus', '')
+  const [width, setWidth] = useState(0)
+  const spanRef = useRef<HTMLSpanElement>(null)
 
   useEffect(() => {
     if (spanRef.current !== null) {
       if (spanRef.current.offsetWidth < 285) {
-        setWidth(285);
+        setWidth(285)
       } else {
-        setWidth(spanRef.current.offsetWidth);
+        setWidth(spanRef.current.offsetWidth)
       }
     }
-  }, [focus]);
+  }, [focus])
 
   return (
     <div className="focus">
@@ -28,7 +28,7 @@ export function Focus() {
           placeholder="today i will focus on..."
           value={focus}
           onChange={event => {
-            setFocus(event.target.value);
+            setFocus(event.target.value)
           }}
           style={{ width }}
         />
@@ -37,5 +37,5 @@ export function Focus() {
         </button>
       </div>
     </div>
-  );
+  )
 }

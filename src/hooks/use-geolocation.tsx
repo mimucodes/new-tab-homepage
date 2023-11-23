@@ -1,37 +1,37 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
 type State = {
-  enabled: boolean;
-  location?: GeolocationPosition;
-};
+  enabled: boolean
+  location?: GeolocationPosition
+}
 
 type GeolocationPosition = {
-  latitude: number;
-  longitude: number;
-};
+  latitude: number
+  longitude: number
+}
 
 export function useGeolocation(): State {
-  const [enabled, setEnabled] = useState(false);
+  const [enabled, setEnabled] = useState(false)
   const [location, setLocation] = useState<GeolocationPosition | undefined>(
     undefined
-  );
+  )
 
   useEffect(() => {
     if (!navigator.geolocation) {
-      setEnabled(false);
-      return;
+      setEnabled(false)
+      return
     }
 
     navigator.geolocation.getCurrentPosition(position => {
-      setEnabled(true);
+      setEnabled(true)
       setLocation({
         latitude: position.coords.latitude,
         longitude: position.coords.longitude,
-      });
-    });
+      })
+    })
 
-    return;
-  }, []);
+    return
+  }, [])
 
-  return { enabled, location };
+  return { enabled, location }
 }

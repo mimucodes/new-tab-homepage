@@ -1,9 +1,9 @@
-import { ReactNode } from 'react';
+import { ReactNode } from 'react'
 
 interface ModalProps {
-  children?: ReactNode;
-  isOpen: boolean;
-  toggle: () => void;
+  children?: ReactNode
+  isOpen: boolean
+  toggle: () => void
 }
 
 export function Modal(props: ModalProps) {
@@ -30,5 +30,5 @@ export function Modal(props: ModalProps) {
         </div>
       )}
     </>
-  );
+  )
 }

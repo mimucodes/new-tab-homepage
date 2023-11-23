@@ -1,32 +1,32 @@
-import { useEffect, useRef, useState } from 'react';
-import { useLocalStorage } from '../hooks/use-local-storage';
+import { useEffect, useRef, useState } from 'react'
+import { useLocalStorage } from '../hooks/use-local-storage'
 
-const hours = new Date().getHours();
+const hours = new Date().getHours()
 
 export function Greeting() {
-  const [username, setUsername] = useLocalStorage('name', '');
-  const [width, setWidth] = useState(0);
-  const spanRef = useRef<HTMLSpanElement>(null);
+  const [username, setUsername] = useLocalStorage('name', '')
+  const [width, setWidth] = useState(0)
+  const spanRef = useRef<HTMLSpanElement>(null)
 
   useEffect(() => {
     if (spanRef.current !== null) {
       if (!spanRef.current.textContent) {
-        setWidth(57);
+        setWidth(57)
       } else {
-        setWidth(spanRef.current.offsetWidth);
+        setWidth(spanRef.current.offsetWidth)
       }
     }
-  }, [username]);
+  }, [username])
 
   let greeting =
     hours >= 5 && hours < 12
       ? 'good morning'
       : hours >= 12 && hours < 18
       ? 'good afternoon'
-      : 'good evening';
+      : 'good evening'
 
   return (
-    <p className='serif'>
+    <p className="serif">
       {greeting}{' '}
       <span className="helper" ref={spanRef}>
         {username}
@@ -45,5 +45,5 @@ export function Greeting() {
       <br />
       it's currently
     </p>
-  );
+  )
 }
