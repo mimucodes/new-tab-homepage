@@ -1,14 +1,14 @@
-import { DateTime } from './components/DateTime'
-import { Favorites } from './components/Favorites'
+import { Widget } from './components/Widget'
 import { Focus } from './components/Focus'
-import { Weather } from './components/Weather'
+import { Favorites } from './components/Bookmarks'
+import { Greeting } from './components/Greeting'
 
 export default function App() {
   return (
     <div className="container d-grid">
-      <DateTime />
-      <Weather />
+      <Greeting />
       <Focus />
+      <Widget />
       <Favorites />
     </div>
   )

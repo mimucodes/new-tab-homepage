@@ -10,9 +10,9 @@ export function DateTime() {
   })
 
   return (
-    <div className="datetime d-grid">
-      <div className="date">{getDate(date)}</div>
-      <div className="time">{getTime(date)}</div>
+    <div className="datetime">
+      <strong className="time">{getTime(date)}</strong>
+      <p className="date">{getDate(date)}</p>
     </div>
   )
 }

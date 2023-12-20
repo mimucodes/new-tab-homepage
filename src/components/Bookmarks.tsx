@@ -29,27 +29,20 @@ export function Favorites() {
     toggle()
   }
 
-  const handleDelete = (id: string) => {
-    const newList = sites.filter((item: SiteBookmark) => item.uuid !== id)
-    setSites(newList)
-  }
-
   const bookmarks =
     sites &&
-    sites.map((item: any) => (
+    sites.map((item: SiteBookmark) => (
       <li key={item.uuid}>
         <a href={item.url} className="bookmark-item">
-          <div className="bookmark-icon">
-            <img src={getFavicon(item.url)} alt="icon" />
-          </div>
+          <div
+            className="bookmark-icon"
+            style={{ backgroundImage: `url(${getFavicon(item.url)})` }}
+          />
           <div className="bookmark-title">
-            <p className="label">{item.title}</p>
+            <p className="label ellipsis">{item.title}</p>
           </div>
         </a>
-        <div
-          className="bookmark-delete"
-          onClick={() => handleDelete(item.uuid)}
-        >
+        <div className="bookmark-delete">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"

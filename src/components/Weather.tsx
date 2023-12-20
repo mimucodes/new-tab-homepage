@@ -1,69 +1,44 @@
-import { unixtime } from '../helpers/time.helpers'
-import {
-  isDaytime,
-  formatTemperature,
-  formatPressure,
-  formatWind,
-  formatHumidity,
-} from '../helpers/weather.helpers'
 import { useFetch } from '../hooks/use-fetch'
 import { useGeolocation } from '../hooks/use-geolocation'
-import { WeatherInfo } from '../types/weather.types'
-import { Greeting } from './Greeting'
-import { WeatherIcon } from './WeatherIcons'
+import { description, IRealtimeWeather } from '../types/weather.types'
+const apiKey = import.meta.env.VITE_WEATHER_API_KEY
 
 export function Weather() {
   const { enabled, location } = useGeolocation()
-  let current: string = ''
-  const apiKey = import.meta.env.VITE_WEATHER_API_KEY
+  let realtime: string = ''
 
   if (enabled && location) {
-    current = `https://api.openweathermap.org/data/2.5/weather?lat=${location?.latitude}&lon=${location?.longitude}&appid=${apiKey}`
+    realtime = `https://api.tomorrow.io/v4/weather/realtime?location=${location?.latitude},${location?.longitude}&apikey=${apiKey}`
   }
 
-  const { status: currentStatus, data: currentWeather } =
-    useFetch<WeatherInfo>(current)
+  const { status: status, data: realtimeWeather } =
+    useFetch<IRealtimeWeather>(realtime)
 
-  if (currentStatus === 'fetching') {
+  if (status === 'fetching') {
     return <p>loading...</p>
   }
 
-  if (currentWeather) {
-    const daytime = isDaytime(
-      unixtime,
-      currentWeather.sys.sunrise,
-      currentWeather.sys.sunset
-    )
-
+  if (realtimeWeather) {
     return (
       <>
-        <Greeting />
-        <div className="weather d-grid">
-          <div className="d-grid main">
-            <div className="icon">
-              <WeatherIcon
-                condition={currentWeather.weather[0].main}
-                isDaytime={daytime}
-              />
-            </div>
-            <div className="info">
-              <p className="temperature">
-                {formatTemperature(currentWeather.main.temp)}
-              </p>
-              <p>{currentWeather.weather[0].description}</p>
-            </div>
+        <div className="temperature">
+          <p className="current">
+            {Math.round(realtimeWeather.data.values.temperature)}°
+          </p>
+          <p>{description[realtimeWeather.data.values.weatherCode]}</p>
+        </div>
+        <div className="weather">
+          <div id="apparent">
+            <p className="label">feels like</p>
+            {Math.round(realtimeWeather.data.values.temperatureApparent)}°
           </div>
-          <div className="pressure">
-            <p className="label">pressure</p>
-            {formatPressure(currentWeather.main.pressure)}
-          </div>
-          <div className="wind">
-            <p className="label">wind</p>
-            {formatWind(currentWeather.wind.deg, currentWeather.wind.speed)}
-          </div>
-          <div className="humidity">
+          <div id="humidity">
             <p className="label">humidity</p>
-            {formatHumidity(currentWeather.main.humidity)}
+            {realtimeWeather.data.values.humidity}%
+          </div>
+          <div id="precipitation">
+            <p className="label">precipitation </p>
+            {realtimeWeather.data.values.precipitationProbability}%
           </div>
         </div>
       </>

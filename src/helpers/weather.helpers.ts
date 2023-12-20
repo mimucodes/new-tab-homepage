@@ -7,7 +7,7 @@ function convertToKilometers(M: number) {
 }
 
 function getCardinalDirection(D: number) {
-  const directions = ['↑', '↗', '→', '↘', '↓', '↙', '←', '↖']
+  const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW']
   return directions[Math.round(D / 45) % 8]
 }
 

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&family=Roboto+Slab:wght@600&display=swap');
 
 @mixin center {
   display: flex;
@@ -7,18 +7,23 @@
   flex-direction: column;
 }
 
-$color-primary: hsl(232deg 89% 60%);
+$color-primary: hsl(273, 84%, 64%);
 $color-white: hsl(0, 0%, 100%);
 $color-10: hsl(233, 31%, 95%);
 $color-20: hsl(233, 31%, 80%);
+$color-30: hsl(233, 26%, 72%);
 $color-40: hsl(238 15% 62%);
-$color-80: hsl(238 24% 23%);
+$color-80: hsl(238 24% 20%);
+
+$font-normal: 400;
+$font-bold: 600;
 
 $border-radius: 12px;
 $box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
 * {
   margin: 0;
+  box-sizing: border-box;
 }
 
 html,
@@ -32,8 +37,8 @@ html {
 
 body {
   -webkit-font-smoothing: antialiased;
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
+  font-family: 'Lexend', sans-serif;
+  font-weight: $font-normal;
   font-size: 100%;
   background-color: $color-10;
   position: relative;
@@ -42,13 +47,19 @@ body {
   @include center;
 }
 
+h2 {
+  font-size: 1.3em;
+  font-weight: $font-bold;
+  font-family: 'Roboto Slab', serif;
+}
+
 p {
   margin: 0;
 }
 
 b,
 strong {
-  font-weight: bolder;
+  font-weight: $font-bold;
 }
 
 ul {
@@ -57,23 +68,13 @@ ul {
 }
 
 .container {
-  gap: 32px;
+  gap: 8px;
   justify-items: center;
 }
 
 .datetime {
-  text-align: center;
-
-  .date {
-    font-family: 'Roboto Slab', serif;
-    font-size: 14px;
-    text-transform: lowercase;
-    font-weight: 400;
-  }
-
   .time {
-    font-size: 32px;
-    font-weight: 600;
+    font-size: 2em;
   }
 }
 
@@ -82,52 +83,54 @@ ul {
   align-items: center;
 }
 
-.serif {
-  font-family: 'Roboto Slab', serif;
-  font-size: 20px;
+.center {
   text-align: center;
 }
 
-.weather {
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#widget {
   background: $color-white;
   padding: 32px;
+  margin: 24px;
   border-radius: $border-radius;
 
+  display: grid;
   row-gap: 24px;
-  column-gap: 48px;
-  grid-template-columns: repeat(3, 1fr);
-  justify-items: center;
+  column-gap: 40px;
+  grid-template-columns: 1fr auto;
 
-  .main {
-    grid-column: span 3;
-    grid-template-columns: auto 1fr;
-    gap: 8px;
-    line-height: 1;
-
-    .icon {
-      width: 64px;
-      color: $color-primary;
-    }
-
-    .temperature {
-      color: $color-primary;
-      font-size: 1.5em;
-      font-weight: 700;
-    }
+  .current {
+    color: $color-primary;
+    font-size: 2em;
+    font-weight: $font-bold;
   }
 
+  .weather {
+    display: flex;
+    grid-column: span 2;
+    column-gap: 40px;
+  }
 }
 
 .label {
-  font-family: 'Roboto Slab', serif;
-  font-size: 0.875em;
-  font-weight: 400;
-  color: $color-40;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  color: $color-30;
 }
 
-.focus {
+#focus {
   display: grid;
-  gap: 16px;
+  justify-items: center;
+
+  .user-input {
+    font-size: 1em;
+    color: $color-primary;
+  }
 }
 
 .helper {
@@ -142,33 +145,34 @@ ul {
 
   ul {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 96px);
+    grid-template-columns: repeat(auto-fill, 120px);
+    grid-template-rows: repeat(auto-fill, 120px);
     justify-content: center;
 
     li {
       display: inline-block;
       position: relative;
+      padding: 16px 24px;
 
       .bookmark-item {
         display: grid;
-        justify-items: center;
+        grid-template-columns: 88px;
+        justify-content: center;
         gap: 8px;
         color: $color-40;
         text-decoration: none;
-        font-size: 14px;
+        text-align: center;
+        font-size: 1em;
 
         .bookmark-icon {
           background-color: $color-white;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 32px;
           border-radius: 14px;
-          overflow: hidden;
-          width: 48px;
-          height: 48px;
-          display: grid;
-          place-content: center;
-
-          img {
-            max-width: 24px;
-          }
+          width: 64px;
+          height: 64px;
+          margin: auto;
         }
       }
 
@@ -227,7 +231,7 @@ ul {
     top: 6px;
     right: 10px;
     line-height: 1;
-    font-size: 22px;
+    font-size: 24px;
     padding: 4px;
     cursor: pointer;
     color: $color-40;
@@ -239,6 +243,7 @@ ul {
 }
 
 .btn {
+  font: inherit;
   background: none;
   border: 0;
   padding: 6px;
@@ -262,14 +267,12 @@ ul {
 
 .user-input {
   position: relative;
-  overflow: hidden;
 
   input {
     font: inherit;
-    font-weight: 400;
     color: inherit;
     width: 100%;
-    padding: 4px 0;
+    padding: 3px 0;
     border: 0;
     border-bottom: 1px solid $color-40;
     background: transparent;
@@ -287,7 +290,7 @@ ul {
   button {
     font-size: 20px;
     position: absolute;
-    right: -4px;
+    right: -16px;
     bottom: 0;
     border: 0;
     padding: 2px;

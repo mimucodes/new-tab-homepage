@@ -8,8 +8,8 @@ export function Focus() {
 
   useEffect(() => {
     if (spanRef.current !== null) {
-      if (spanRef.current.offsetWidth < 285) {
-        setWidth(285)
+      if (spanRef.current.offsetWidth < 84) {
+        setWidth(84)
       } else {
         setWidth(spanRef.current.offsetWidth)
       }
@@ -17,15 +17,17 @@ export function Focus() {
   }, [focus])
 
   return (
-    <div className="focus">
-      <p className="serif">what will you focus on today?</p>
+    <section id="focus">
+      <p className="center">
+        what will you <strong>focus</strong> on today?
+      </p>
       <span className="helper" ref={spanRef}>
         {focus}
       </span>
       <div className="user-input">
         <input
           type="text"
-          placeholder="today i will focus on..."
+          placeholder="today i will..."
           value={focus}
           onChange={event => {
             setFocus(event.target.value)
@@ -36,6 +38,6 @@ export function Focus() {
           <span aria-hidden="true">×</span>
         </button>
       </div>
-    </div>
+    </section>
   )
 }
