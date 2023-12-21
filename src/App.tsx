@@ -1,6 +1,6 @@
 import { Widget } from './components/Widget'
 import { Focus } from './components/Focus'
-import { Favorites } from './components/Bookmarks'
+import { Bookmarks } from './components/Bookmarks'
 import { Greeting } from './components/Greeting'
 
 export default function App() {
@@ -9,7 +9,7 @@ export default function App() {
       <Greeting />
       <Focus />
       <Widget />
-      <Favorites />
+      <Bookmarks />
     </div>
   )
 }

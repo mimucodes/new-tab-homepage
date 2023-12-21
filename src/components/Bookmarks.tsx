@@ -9,9 +9,11 @@ type SiteBookmark = {
   uuid: string
 }
 
-export function Favorites() {
+export function Bookmarks() {
   const [sites, setSites] = useLocalStorage('user-sites', '')
   const { isOpen, toggle } = useModal()
+  let draggedItem: any = null
+  let draggedOverItem: any = null
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -29,11 +31,53 @@ export function Favorites() {
     toggle()
   }
 
+  const handleDelete = (id: string) => {
+    const newList = sites.filter((item: SiteBookmark) => item.uuid !== id)
+    setSites(newList)
+  }
+
+  const handleDragStart = (e: React.DragEvent, idx: number) => {
+    draggedItem = sites[idx]
+    e.dataTransfer.effectAllowed = 'move'
+    e.dataTransfer.setData('text/html', '')
+
+    const icons = Array.from(document.querySelectorAll('.bookmark-icon'))
+    e.dataTransfer.setDragImage(icons[idx], 0, 0)
+  }
+
+  const handleDrop = (e: React.DragEvent, idx: number) => {
+    draggedOverItem = sites[idx]
+
+    if (draggedItem === draggedOverItem || !draggedItem) {
+      return
+    }
+
+    let newList = sites.filter((item: SiteBookmark) => item !== draggedItem)
+    newList.splice(idx, 0, draggedItem)
+
+    setSites(newList)
+  }
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault()
+  }
+
+  const handleDragEnd = () => {
+    draggedItem = null
+  }
+
   const bookmarks =
     sites &&
-    sites.map((item: SiteBookmark) => (
-      <li key={item.uuid}>
-        <a href={item.url} className="bookmark-item">
+    sites.map((item: SiteBookmark, idx: number) => (
+      <li key={item.uuid} onDragOver={handleDragOver}>
+        <a
+          href={item.url}
+          className="bookmark-item"
+          draggable
+          onDragStart={e => handleDragStart(e, idx)}
+          onDragEnd={handleDragEnd}
+          onDrop={e => handleDrop(e, idx)}
+        >
           <div
             className="bookmark-icon"
             style={{ backgroundImage: `url(${getFavicon(item.url)})` }}
@@ -42,7 +86,10 @@ export function Favorites() {
             <p className="label ellipsis">{item.title}</p>
           </div>
         </a>
-        <div className="bookmark-delete">
+        <div
+          className="bookmark-delete"
+          onClick={() => handleDelete(item.uuid)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
