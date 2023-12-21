@@ -8,6 +8,7 @@ export interface IRealtimeWeather {
       temperature: number
       temperatureApparent: number
       weatherCode: number
+      windDirection: number
       windSpeed: number
     }
   }
