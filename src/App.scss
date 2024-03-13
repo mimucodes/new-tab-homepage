@@ -70,6 +70,7 @@ ul {
 .container {
   gap: 8px;
   justify-items: center;
+  min-width: 480px;
 }
 
 .datetime {
@@ -173,6 +174,11 @@ ul {
           width: 64px;
           height: 64px;
           margin: auto;
+          transition: border .5ms;
+
+          &.target {
+            border: 2px solid $color-20;
+          }
         }
       }
 

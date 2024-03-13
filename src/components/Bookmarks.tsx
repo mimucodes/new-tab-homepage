@@ -42,7 +42,7 @@ export function Bookmarks() {
     e.dataTransfer.setData('text/html', '')
 
     const icons = Array.from(document.querySelectorAll('.bookmark-icon'))
-    e.dataTransfer.setDragImage(icons[idx], 0, 0)
+    e.dataTransfer.setDragImage(icons[idx], 32, 32)
   }
 
   const handleDrop = (e: React.DragEvent, idx: number) => {
@@ -58,18 +58,25 @@ export function Bookmarks() {
     setSites(newList)
   }
 
-  const handleDragOver = (e: React.DragEvent) => {
+  const handleDragOver = (e: React.DragEvent, idx: number) => {
     e.preventDefault()
+
+    const icons = Array.from(document.querySelectorAll('.bookmark-icon'))
+    icons.forEach(el => el.classList.remove('target'))
+    icons[idx].classList.add('target')
   }
 
   const handleDragEnd = () => {
     draggedItem = null
+
+    const icons = Array.from(document.querySelectorAll('.bookmark-icon'))
+    icons.forEach(el => el.classList.remove('target'))
   }
 
   const bookmarks =
     sites &&
     sites.map((item: SiteBookmark, idx: number) => (
-      <li key={item.uuid} onDragOver={handleDragOver}>
+      <li key={item.uuid} onDragOver={e => handleDragOver(e, idx)}>
         <a
           href={item.url}
           className="bookmark-item"
