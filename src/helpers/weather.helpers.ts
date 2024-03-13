@@ -2,7 +2,7 @@ function convertToCelsius(K: number) {
   return K - 273.15
 }
 
-function convertToKilometers(M: number) {
+function convertToKPH(M: number) {
   return M * 3.6
 }
 
@@ -21,7 +21,7 @@ export function formatPressure(pressure: number) {
 
 export function formatWind(degree: number, speed: number) {
   return `${getCardinalDirection(degree)} ${Math.round(
-    convertToKilometers(speed)
+    convertToKPH(speed),
   )} km/h`
 }
 
