@@ -17,7 +17,8 @@ export function useFetch<T = unknown>(url: string): State<T> {
 
       try {
         const response = await fetch(url)
-        setData(await response?.json())
+        if (!response.ok) throw new Error(response.statusText)
+        setData(await response.json())
         setStatus('fetched')
       } catch (error) {
         setStatus('error')
