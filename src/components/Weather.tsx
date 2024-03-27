@@ -1,6 +1,10 @@
 import { useFetch } from '../hooks/use-fetch'
 import { useGeolocation } from '../hooks/use-geolocation'
-import { formatTemperature, formatWind } from '../helpers/weather.helpers'
+import {
+  formatProbability,
+  formatTemperature,
+  formatWind,
+} from '../helpers/weather.helpers'
 import { IRealtimeWeather, IForecastWeather } from '../types/weather.types'
 const apiKey = import.meta.env.VITE_WEATHER_API_KEY
 
@@ -31,7 +35,7 @@ export function Weather() {
   if (realtimeWeather && forecastWeather) {
     return (
       <>
-        <div className="temperature">
+        <div className="temperature right">
           <p className="current">
             {formatTemperature(realtimeWeather.main.temp)}
           </p>
@@ -48,7 +52,7 @@ export function Weather() {
           </div>
           <div id="precipitation">
             <p className="label">precipitation </p>
-            {forecastWeather.list[0].pop}%
+            {formatProbability(forecastWeather.list[0].pop)}
           </div>
         </div>
       </>

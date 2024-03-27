@@ -29,6 +29,10 @@ export function formatHumidity(humidity: number) {
   return `${humidity}%`
 }
 
+export function formatProbability(pop: number) {
+  return `${pop * 100}%`
+}
+
 export function isDaytime(now: number, sunrise: number, sunset: number) {
   return now > sunrise && now < sunset
 }
