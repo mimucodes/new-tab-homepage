@@ -1,4 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&family=Roboto+Slab:wght@600&display=swap');
+@font-face {
+  font-family: "Be Vietnam Pro";
+  src: url("./fonts/BeVietnamPro-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Be Vietnam Pro";
+  src: url("./fonts/BeVietnamPro-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Be Vietnam Pro";
+  src: url("./fonts/BeVietnamPro-Bold.ttf") format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Poltawski Nowy";
+  src: url("./fonts/PoltawskiNowy-VariableFont_wght.ttf") format("truetype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poltawski Nowy";
+  src: url("./fonts/PoltawskiNowy-Italic-VariableFont_wght.ttf") format("truetype");
+  font-style: italic;
+}
 
 @mixin center {
   display: flex;
@@ -7,19 +35,49 @@
   flex-direction: column;
 }
 
-$color-primary: hsl(273, 84%, 64%);
-$color-white: hsl(0, 0%, 100%);
-$color-10: hsl(233, 31%, 95%);
-$color-20: hsl(233, 31%, 80%);
-$color-30: hsl(233, 26%, 72%);
-$color-40: hsl(238 15% 62%);
-$color-80: hsl(238 24% 20%);
+$white: #ffffff;
+$gray-25: #fcfcfd;
+$gray-50: #f9f9fb;
+$gray-100: hsl(220, 23%, 95%);
+$gray-200: hsl(227, 25%, 89%);
+$gray-300: hsl(224, 24%, 78%);
+$gray-400: #8d97b9;
+$gray-500: hsl(226, 24%, 48%);
+$gray-600: #4A5578;
+$gray-700: #404968;
+$gray-800: #30374F;
+$gray-900: #111322;
+$pink: #fcccdf;
+$purple: #7f87fa;
 
-$font-normal: 400;
-$font-bold: 600;
+$text-white: $white;
+$text-primary: $gray-900;
+$text-secondary: $gray-600;
+$text-tertiary: $gray-400;
+$text-placeholder: $gray-400;
 
-$border-radius: 12px;
-$box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+$bg-primary: $gray-50;
+$bg-secondary: $white;
+
+$fg-accent: $purple;
+$fg-primary: $gray-600;
+$fg-secondary: $gray-400;
+
+$border-primary: $gray-200;
+$border-accent: $gray-300;
+
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+
+$border-radius: 16px;
+$soft-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03),
+  0 1px 6px -1px rgba(0, 0, 0, 0.02),
+  0 2px 4px 0 rgba(0, 0, 0, 0.02);
+
+:root {
+  accent-color: $fg-accent;
+}
 
 * {
   margin: 0;
@@ -32,15 +90,16 @@ body {
 }
 
 html {
-  color: $color-80;
+  color: $text-secondary;
+  user-select: none;
 }
 
 body {
   -webkit-font-smoothing: antialiased;
-  font-family: 'Lexend', sans-serif;
-  font-weight: $font-normal;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: $fw-regular;
   font-size: 100%;
-  background-color: $color-10;
+  background-color: $bg-primary;
   position: relative;
   overflow: hidden;
 
@@ -49,17 +108,23 @@ body {
 
 h2 {
   font-size: 1.3em;
-  font-weight: $font-bold;
-  font-family: 'Roboto Slab', serif;
+  font-weight: $fw-medium;
+  color: $text-primary;
 }
 
 p {
   margin: 0;
 }
 
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
 b,
 strong {
-  font-weight: $font-bold;
+  font-weight: $fw-semibold;
 }
 
 ul {
@@ -67,29 +132,48 @@ ul {
   padding: 0;
 }
 
-.container {
-  gap: 8px;
-  justify-items: center;
-  min-width: 480px;
+button {
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  font: inherit;
 }
 
-.datetime {
-  .time {
-    font-size: 2em;
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  padding: 0;
+}
+
+input,
+textarea {
+  color: $text-primary;
+
+  &::placeholder {
+    color: $text-placeholder;
+  }
+
+  &:focus {
+    outline: 0;
   }
 }
 
-.d-grid {
+.grid {
   display: grid;
-  align-items: center;
+  gap: 24px;
+  grid-template-columns: repeat(3, max-content);
+  grid-auto-rows: min-content;
 }
 
-.center {
-  text-align: center;
-}
-
-.right {
-  text-align: right;
+.container {
+  border: 1px solid $border-primary;
+  background-color: $bg-secondary;
+  padding: 32px;
+  border-radius: $border-radius;
 }
 
 .ellipsis {
@@ -98,103 +182,191 @@ ul {
   text-overflow: ellipsis;
 }
 
+.text-balance {
+  text-wrap: balance;
+}
+
 #widget {
-  background: $color-white;
-  padding: 32px;
-  margin: 24px;
-  border-radius: $border-radius;
-
   display: grid;
-  row-gap: 24px;
-  column-gap: 40px;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: repeat(2, max-content);
+  gap: 24px;
+  grid-column: span 2;
 
-  .current {
-    color: $color-primary;
-    font-size: 2em;
-    font-weight: $font-bold;
+  .greeting {
+    grid-column: span 2;
+
+    input {
+      field-sizing: content;
+      border: 0;
+    }
+  }
+
+  .datetime {
+    text-transform: lowercase;
+  }
+
+  .time,
+  .temperature .current {
+    font-size: 24px;
+    font-weight: $fw-semibold;
+    color: $text-primary;
+  }
+
+  .temperature {
+    text-align: right;
   }
 
   .weather {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    gap: 40px;
     grid-column: span 2;
-    column-gap: 40px;
   }
 }
 
 .label {
   font-size: 12px;
   letter-spacing: 1px;
-  color: $color-30;
+  color: $text-tertiary;
 }
 
-#focus {
-  display: grid;
-  justify-items: center;
+.btn-icon {
+  @include center;
+  background: $bg-secondary;
+  color: $fg-secondary;
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  border: 1px solid $border-primary;
+  box-shadow: $soft-shadow;
+  cursor: pointer;
 
-  .user-input {
-    font-size: 1em;
-    color: $color-primary;
+  &:hover {
+    color: $fg-primary;
   }
 }
 
-.helper {
-  position: absolute;
-  opacity: 0;
+#gallery {
+  padding: 0;
+  overflow: hidden;
+  width: 240px;
+  aspect-ratio: 1;
+}
+
+#quote {
+  position: relative;
+  display: grid;
+  place-content: center;
+  font-family: Poltawski Nowy, serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "wght" 700;
+  font-size: 24px;
+  color: $text-white;
+  text-shadow: 1px 1px 1px $text-primary;
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    pointer-events: none;
+    mix-blend-mode: soft-light;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence baseFrequency='0.6' type='fractalNoise' numOctaves='3' result='noise' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' /%3E%3C/svg%3E") repeat center;
+    background-color: $fg-primary;
+  }
+
+  p {
+    inline-size: 232px;
+    text-wrap: balance;
+  }
+}
+
+#focus {
+  grid-column: span 2;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  row-gap: 16px;
+  position: relative;
+
+  em {
+    font-style: normal;
+    text-decoration: underline wavy $fg-accent;
+    text-underline-offset: 2px;
+  }
+
+  textarea {
+    min-height: 40px;
+    border: 0;
+    resize: none;
+    text-wrap: balance;
+    overflow: hidden;
+  }
+
+  button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    opacity: 0;
+  }
+
+  &:hover>textarea:not(:placeholder-shown)+button {
+    opacity: 1;
+  }
 }
 
 #bookmarks {
   display: grid;
   gap: 16px;
   width: 100%;
+  grid-column: span 3;
 
   ul {
     display: grid;
     grid-template-columns: repeat(auto-fit, 120px);
-    grid-template-rows: repeat(auto-fill, 120px);
+    row-gap: 32px;
     justify-content: center;
 
     li {
       display: inline-block;
       position: relative;
+      animation: none;
 
       .bookmark-item {
         display: grid;
         grid-template-columns: 88px;
         justify-content: center;
         gap: 8px;
-        color: $color-40;
+        color: $text-secondary;
         text-decoration: none;
         text-align: center;
         font-size: 1em;
+      }
 
-        .bookmark-icon {
-          background-color: $color-white;
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: 32px;
-          border-radius: 14px;
-          width: 64px;
-          height: 64px;
-          margin: auto;
-          transition: border .5ms;
+      .bookmark-icon {
+        background-color: $white;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 32px;
+        border-radius: $border-radius;
+        border: 1px solid $border-primary;
+        width: 64px;
+        height: 64px;
+        margin: auto;
+        transition: border .5ms;
 
-          &.target {
-            border: 2px solid $color-20;
-          }
+        &.target {
+          border: 2px solid $border-accent;
         }
       }
 
-      .bookmark-delete {
+      .bookmark-buttons {
         position: absolute;
-        top: -10px;
-        left: 10px;
-        opacity: 0;
-        cursor: pointer;
-      }
+        top: -12px;
+        left: 0;
 
-      &:hover>.bookmark-item+.bookmark-delete {
-        opacity: 1;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
       }
     }
   }
@@ -203,10 +375,15 @@ ul {
     opacity: 0;
   }
 
-  &:hover>.mouse-hover {
-    opacity: 1;
+  &:hover {
+    .mouse-hover {
+      opacity: 1;
+    }
   }
 
+  #add-site {
+    justify-self: center;
+  }
 }
 
 .modal-overlay {
@@ -217,21 +394,58 @@ ul {
   left: 0;
   background-color: hsla(0, 0%, 0%, 0.5);
   z-index: 9999;
-  display: grid;
-  place-content: center;
-  justify-items: flex-end;
-  grid-template-columns: max-content min-content;
-  gap: 8px;
+  @include center;
 
   .modal-container {
-    background-color: $color-white;
+    width: 352px;
+    background-color: $white;
     border-radius: $border-radius;
     padding: 32px;
     position: relative;
 
-    form {
+    .header {
+      font-size: 16px;
+      color: $text-primary;
+    }
+
+    .main {
       display: grid;
       gap: 16px;
+    }
+
+    .footer {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    form {
+      display: grid;
+      gap: 24px;
+
+      fieldset {
+        border: 0;
+        padding: 0;
+
+        display: grid;
+        gap: 4px
+      }
+
+      label {
+        font-size: 14px;
+      }
+    }
+
+    input {
+      width: 100%;
+      padding: 8px 16px;
+      border: 1px solid $border-primary;
+      border-radius: calc($border-radius / 2);
+      background: transparent;
+
+      &:focus {
+        border: 1px solid $fg-accent;
+      }
     }
   }
 
@@ -243,78 +457,30 @@ ul {
     font-size: 24px;
     padding: 4px;
     cursor: pointer;
-    color: $color-40;
+    color: $text-secondary;
 
     &:hover {
-      color: $color-80;
-    }
-  }
-}
-
-.btn {
-  font: inherit;
-  background: none;
-  border: 0;
-  padding: 6px;
-  cursor: pointer;
-  @include center;
-
-  &.icon {
-    color: $color-40;
-
-    &:hover {
-      color: $color-80;
-    }
-  }
-
-  &[type=submit] {
-    background-color: $color-primary;
-    color: $color-white;
-    border-radius: calc($border-radius / 2);
-  }
-}
-
-.user-input {
-  position: relative;
-
-  input {
-    font: inherit;
-    color: inherit;
-    width: 100%;
-    padding: 3px 0;
-    border: 0;
-    border-bottom: 1px solid $color-40;
-    background: transparent;
-
-    &::placeholder {
-      color: $color-40;
-    }
-
-    &:focus {
-      border-bottom: 1px solid $color-primary;
-      outline: 0;
+      color: $text-primary;
     }
   }
 
   button {
-    font-size: 20px;
-    position: absolute;
-    right: -16px;
-    bottom: 0;
-    border: 0;
-    padding: 2px;
+    padding: 8px 16px;
     background-color: transparent;
-    color: $color-40;
-    display: none;
+    color: $text-secondary;
+    border: 1px solid $border-primary;
+    border-radius: calc($border-radius / 2);
     cursor: pointer;
 
     &:hover {
-      color: $color-80;
+      color: $text-primary;
     }
-  }
 
-  &:hover>input:not(:placeholder-shown)+button {
-    display: block;
+    &[type=submit] {
+      background-color: $text-primary;
+      color: $white;
+      border: $fg-primary;
+    }
   }
 }
 
@@ -326,5 +492,19 @@ input[name="username"] {
     border: 0;
     font-weight: inherit;
     padding: 0;
+  }
+}
+
+@media (max-width: 690px) {
+  .grid {
+    grid-template-columns: 1fr;
+
+    section {
+      grid-column: initial !important;
+    }
+  }
+
+  #gallery {
+    display: none;
   }
 }

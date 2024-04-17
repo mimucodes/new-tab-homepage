@@ -29,8 +29,8 @@ export function formatHumidity(humidity: number) {
   return `${humidity}%`
 }
 
-export function formatProbability(pop: number) {
-  return `${pop * 100}%`
+export function formatPrecipitation(pop: number) {
+  return `${pop.toLocaleString('en', { style: 'percent' })}`
 }
 
 export function isDaytime(now: number, sunrise: number, sunset: number) {

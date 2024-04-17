@@ -1,43 +1,50 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { useLocalStorage } from '../hooks/use-local-storage'
 
 export function Focus() {
   const [focus, setFocus] = useLocalStorage('focus', '')
-  const [width, setWidth] = useState(0)
-  const spanRef = useRef<HTMLSpanElement>(null)
+  const textAreaRef = useRef<HTMLTextAreaElement>(null)
 
   useEffect(() => {
-    if (spanRef.current !== null) {
-      if (spanRef.current.offsetWidth < 84) {
-        setWidth(84)
-      } else {
-        setWidth(spanRef.current.offsetWidth)
-      }
+    if (textAreaRef.current) {
+      textAreaRef.current.style.height = '0px'
+      textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`
     }
   }, [focus])
 
   return (
-    <section id="focus">
-      <p className="center">
-        what will you <strong>focus</strong> on today?
+    <section id="focus" className="container">
+      <p>
+        what will you
+        <br />
+        <em>focus</em> on today?
       </p>
-      <span className="helper" ref={spanRef}>
-        {focus}
-      </span>
-      <div className="user-input">
-        <input
-          type="text"
-          placeholder="today i will..."
-          value={focus}
-          onChange={event => {
-            setFocus(event.target.value)
-          }}
-          style={{ width }}
-        />
-        <button onClick={() => setFocus('')}>
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
+      <textarea
+        ref={textAreaRef}
+        placeholder="focus on things you can control"
+        spellCheck={false}
+        value={focus}
+        onChange={event => {
+          setFocus(event.target.value)
+        }}
+      />
+      <button className="btn-icon" onClick={() => setFocus('')}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width={16}
+          height={16}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={2}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M19 20h-10.5l-4.21 -4.3a1 1 0 0 1 0 -1.41l10 -10a1 1 0 0 1 1.41 0l5 5a1 1 0 0 1 0 1.41l-9.2 9.3" />
+          <path d="M18 13.3l-6.3 -6.3" />
+        </svg>
+      </button>
     </section>
   )
 }

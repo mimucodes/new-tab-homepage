@@ -1,14 +1,15 @@
-import { Widget } from './components/Widget'
-import { Focus } from './components/Focus'
 import { Bookmarks } from './components/Bookmarks'
-import { Greeting } from './components/Greeting'
+import { Focus } from './components/Focus'
+import { Gallery } from './components/Gallery'
+import { Widget } from './components/Widget'
 
 export default function App() {
   return (
-    <div className="container d-grid">
-      <Greeting />
-      <Focus />
+    <div className="grid">
       <Widget />
+      <Gallery />
+      <Gallery hasText />
+      <Focus />
       <Bookmarks />
     </div>
   )

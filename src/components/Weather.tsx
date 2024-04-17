@@ -1,11 +1,11 @@
-import { useFetch } from '../hooks/use-fetch'
-import { useGeolocation } from '../hooks/use-geolocation'
 import {
-  formatProbability,
+  formatPrecipitation,
   formatTemperature,
   formatWind,
 } from '../helpers/weather.helpers'
-import { IRealtimeWeather, IForecastWeather } from '../types/weather.types'
+import { useFetch } from '../hooks/use-fetch'
+import { useGeolocation } from '../hooks/use-geolocation'
+import { IForecastWeather, IRealtimeWeather } from '../types/weather.types'
 const apiKey = import.meta.env.VITE_WEATHER_API_KEY
 
 export function Weather() {
@@ -52,7 +52,7 @@ export function Weather() {
           </div>
           <div id="precipitation">
             <p className="label">precipitation </p>
-            {formatProbability(forecastWeather.list[0].pop)}
+            {formatPrecipitation(forecastWeather.list[0].pop)}
           </div>
         </div>
       </>
