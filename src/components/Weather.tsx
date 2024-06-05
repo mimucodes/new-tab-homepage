@@ -25,7 +25,40 @@ export function Weather() {
     useFetch<IForecastWeather>(forecast)
 
   if (realtimeStatus === 'fetching' || forecastStatus == 'fetching') {
-    return <p>loading...</p>
+    return (
+      <>
+        <div className="temperature right">
+          <p className="current">?°C</p>
+          <p>loading...</p>
+        </div>
+        <div className="weather">
+          <div id="wind">
+            <p className="label">wind</p>
+            <svg height="10" width="75">
+              <circle className="dot" cx="29" cy="5" r="2"></circle>
+              <circle className="dot" cx="16" cy="5" r="2"></circle>
+              <circle className="dot" cx="3" cy="5" r="2"></circle>
+            </svg>
+          </div>
+          <div id="humidity">
+            <p className="label">humidity</p>
+            <svg height="10" width="75">
+              <circle className="dot" cx="29" cy="5" r="2"></circle>
+              <circle className="dot" cx="16" cy="5" r="2"></circle>
+              <circle className="dot" cx="3" cy="5" r="2"></circle>
+            </svg>
+          </div>
+          <div id="precipitation">
+            <p className="label">precipitation </p>
+            <svg height="10" width="75">
+              <circle className="dot" cx="29" cy="5" r="2"></circle>
+              <circle className="dot" cx="16" cy="5" r="2"></circle>
+              <circle className="dot" cx="3" cy="5" r="2"></circle>
+            </svg>
+          </div>
+        </div>
+      </>
+    )
   }
 
   if (realtimeStatus === 'error' || forecastStatus === 'error') {
