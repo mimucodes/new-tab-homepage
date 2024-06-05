@@ -34,26 +34,26 @@ export function Weather() {
         <div className="weather">
           <div id="wind">
             <p className="label">wind</p>
-            <svg height="10" width="75">
-              <circle className="dot" cx="29" cy="5" r="2"></circle>
-              <circle className="dot" cx="16" cy="5" r="2"></circle>
-              <circle className="dot" cx="3" cy="5" r="2"></circle>
+            <svg height="20" width="75">
+              <circle className="dot" cx="29" cy="10" r="2"></circle>
+              <circle className="dot" cx="16" cy="10" r="2"></circle>
+              <circle className="dot" cx="3" cy="10" r="2"></circle>
             </svg>
           </div>
           <div id="humidity">
             <p className="label">humidity</p>
-            <svg height="10" width="75">
-              <circle className="dot" cx="29" cy="5" r="2"></circle>
-              <circle className="dot" cx="16" cy="5" r="2"></circle>
-              <circle className="dot" cx="3" cy="5" r="2"></circle>
+            <svg height="20" width="75">
+              <circle className="dot" cx="29" cy="10" r="2"></circle>
+              <circle className="dot" cx="16" cy="10" r="2"></circle>
+              <circle className="dot" cx="3" cy="10" r="2"></circle>
             </svg>
           </div>
           <div id="precipitation">
             <p className="label">precipitation </p>
-            <svg height="10" width="75">
-              <circle className="dot" cx="29" cy="5" r="2"></circle>
-              <circle className="dot" cx="16" cy="5" r="2"></circle>
-              <circle className="dot" cx="3" cy="5" r="2"></circle>
+            <svg height="20" width="75">
+              <circle className="dot" cx="29" cy="10" r="2"></circle>
+              <circle className="dot" cx="16" cy="10" r="2"></circle>
+              <circle className="dot" cx="3" cy="10" r="2"></circle>
             </svg>
           </div>
         </div>
