@@ -9,4 +9,4 @@ chrome extension to replace the new tab
 
 **screenshot**
 
-![chrome-extension](https://github.com/msgabriel/new-tab-homepage/assets/35223420/6d4830ce-79d2-4b65-8839-81cd4bb45bec)
+![new-tab-homepage](https://github.com/user-attachments/assets/3eb337d5-452c-406a-8bdb-b1947804b048)
