@@ -1,27 +1,25 @@
-import { useEffect, useRef } from 'react'
 import { useLocalStorage } from '../hooks/use-local-storage'
+import { randoItem } from '../utils'
+
+const quotes = [
+  'stop chasing things that\ndo nothing for your growth',
+  'slow progress\nbeats no progress',
+  'you are what you choose\nto let into your life',
+]
 
 export function Focus() {
   const [focus, setFocus] = useLocalStorage('focus', '')
-  const textAreaRef = useRef<HTMLTextAreaElement>(null)
-
-  useEffect(() => {
-    if (textAreaRef.current) {
-      textAreaRef.current.style.height = '0px'
-      textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`
-    }
-  }, [focus])
 
   return (
     <section id="focus" className="container">
       <p>
-        what will you
+        what should we <em>focus</em>
         <br />
-        <em>focus</em> on today?
+        on today?
       </p>
       <textarea
-        ref={textAreaRef}
-        placeholder="focus on things you can control"
+        id="focus"
+        placeholder={randoItem(quotes)}
         spellCheck={false}
         value={focus}
         onChange={event => {

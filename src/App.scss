@@ -1,31 +1,9 @@
 @font-face {
   font-family: "Be Vietnam Pro";
-  src: url("./fonts/BeVietnamPro-Regular.ttf") format("truetype");
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Be Vietnam Pro";
-  src: url("./fonts/BeVietnamPro-Medium.ttf") format("truetype");
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: "Be Vietnam Pro";
-  src: url("./fonts/BeVietnamPro-Bold.ttf") format("truetype");
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: "Poltawski Nowy";
-  src: url("./fonts/PoltawskiNowy-VariableFont_wght.ttf") format("truetype");
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Poltawski Nowy";
-  src: url("./fonts/PoltawskiNowy-Italic-VariableFont_wght.ttf") format("truetype");
-  font-style: italic;
+  src: local("Trickster"),
+    url("./fonts/BeVietnamPro.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
 }
 
 @mixin center {
@@ -35,40 +13,37 @@
   flex-direction: column;
 }
 
-$white: #ffffff;
-$gray-25: #fcfcfd;
-$gray-50: #f9f9fb;
-$gray-100: hsl(220, 23%, 95%);
-$gray-200: hsl(227, 25%, 89%);
-$gray-300: hsl(224, 24%, 78%);
-$gray-400: #8d97b9;
-$gray-500: hsl(226, 24%, 48%);
-$gray-600: #4A5578;
-$gray-700: #404968;
-$gray-800: #30374F;
-$gray-900: #111322;
-$pink: #fcccdf;
-$purple: #7f87fa;
+$white: hsl(0, 0%, 100%);
+$gray-50: hsl(240, 50%, 98%);
+$gray-100: hsl(230, 26%, 90%);
+$gray-200: hsl(228, 22%, 84%);
+$gray-300: hsl(224, 16%, 70%);
+$gray-500: hsl(224, 18%, 52%);
+$gray-900: hsl(236, 36%, 11%);
+$color: hsl(99, 80%, 28%);
 
 $text-white: $white;
 $text-primary: $gray-900;
-$text-secondary: $gray-600;
-$text-tertiary: $gray-400;
-$text-placeholder: $gray-400;
+$text-secondary: $gray-500;
+$text-tertiary: $gray-300;
+$text-placeholder: $gray-300;
 
 $bg-primary: $gray-50;
 $bg-secondary: $white;
+$bg-primary-solid: $gray-900;
 
-$fg-accent: $purple;
-$fg-primary: $gray-600;
-$fg-secondary: $gray-400;
+$fg-accent: $color;
+$fg-primary: $gray-300;
+$fg-primary-solid: $gray-900;
 
-$border-primary: $gray-200;
+$border-primary: $gray-100;
+$border-primary-solid: $gray-900;
 $border-accent: $gray-300;
 
+$fw-light: 300;
 $fw-regular: 400;
 $fw-medium: 500;
-$fw-semibold: 600;
+$fw-semibold: 700;
 
 $border-radius: 16px;
 $soft-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03),
@@ -91,7 +66,6 @@ body {
 
 html {
   color: $text-secondary;
-  user-select: none;
 }
 
 body {
@@ -102,6 +76,11 @@ body {
   background-color: $bg-primary;
   position: relative;
   overflow: hidden;
+
+  ::selection {
+    background: $bg-primary;
+    color: $fg-accent;
+  }
 
   @include center;
 }
@@ -155,6 +134,7 @@ textarea {
 
   &::placeholder {
     color: $text-placeholder;
+    font-weight: $fw-light;
   }
 
   &:focus {
@@ -166,7 +146,6 @@ textarea {
   display: grid;
   gap: 24px;
   grid-template-columns: repeat(3, max-content);
-  grid-auto-rows: min-content;
 }
 
 .container {
@@ -219,8 +198,9 @@ textarea {
   .weather {
     display: grid;
     grid-template-columns: repeat(3, max-content);
-    gap: 40px;
+    gap: 32px;
     grid-column: span 2;
+    font-size: 14px;
   }
 }
 
@@ -233,7 +213,7 @@ textarea {
 .btn-icon {
   @include center;
   background: $bg-secondary;
-  color: $fg-secondary;
+  color: $fg-primary;
   width: 32px;
   height: 32px;
   border-radius: 100%;
@@ -242,64 +222,49 @@ textarea {
   cursor: pointer;
 
   &:hover {
-    color: $fg-primary;
+    color: $fg-primary-solid;
   }
 }
 
 #gallery {
-  padding: 0;
   overflow: hidden;
   width: 240px;
-  aspect-ratio: 1;
-}
-
-#quote {
-  position: relative;
-  display: grid;
-  place-content: center;
-  font-family: Poltawski Nowy, serif;
-  font-optical-sizing: auto;
-  font-variation-settings: "wght" 700;
-  font-size: 24px;
   color: $text-white;
-  text-shadow: 1px 1px 1px $text-primary;
+  font-size: 11px;
+  position: relative;
 
-  &::after {
-    content: "";
-    width: 100%;
-    height: 100%;
+  span {
     position: absolute;
-    pointer-events: none;
-    mix-blend-mode: soft-light;
-    background: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence baseFrequency='0.6' type='fractalNoise' numOctaves='3' result='noise' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' /%3E%3C/svg%3E") repeat center;
-    background-color: $fg-primary;
+    bottom: 8px;
+    right: 8px;
+    opacity: 0;
   }
 
-  p {
-    inline-size: 232px;
-    text-wrap: balance;
+  &:hover>span {
+    opacity: 1;
   }
 }
 
 #focus {
   grid-column: span 2;
-  display: grid;
-  grid-template-rows: auto 1fr;
-  row-gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   position: relative;
 
   em {
     font-style: normal;
-    text-decoration: underline wavy $fg-accent;
-    text-underline-offset: 2px;
+    text-decoration: underline 2px $fg-accent;
+    text-underline-offset: 3px;
   }
 
   textarea {
-    min-height: 40px;
     border: 0;
     resize: none;
     text-wrap: balance;
-    overflow: hidden;
+    min-height: 40px;
+    inline-size: 310px;
+    field-sizing: content;
   }
 
   button {
@@ -322,7 +287,7 @@ textarea {
 
   ul {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 120px);
+    grid-template-columns: repeat(auto-fit, 106px);
     row-gap: 32px;
     justify-content: center;
 
@@ -355,7 +320,7 @@ textarea {
         transition: border .5ms;
 
         &.target {
-          border: 2px solid $border-accent;
+          border: 1px solid $border-accent;
         }
       }
 
@@ -444,7 +409,7 @@ textarea {
       background: transparent;
 
       &:focus {
-        border: 1px solid $fg-accent;
+        border: 1px solid $border-accent;
       }
     }
   }
@@ -472,14 +437,10 @@ textarea {
     border-radius: calc($border-radius / 2);
     cursor: pointer;
 
-    &:hover {
-      color: $text-primary;
-    }
-
     &[type=submit] {
-      background-color: $text-primary;
+      background-color: $bg-primary-solid;
       color: $white;
-      border: $fg-primary;
+      border: $border-primary-solid;
     }
   }
 }
@@ -507,4 +468,23 @@ input[name="username"] {
   #gallery {
     display: none;
   }
+}
+
+@keyframes blink {
+  50% {
+    fill: transparent
+  }
+}
+
+.dot {
+  animation: 1s blink infinite;
+  fill: $fg-primary;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 250ms
+}
+
+.dot:nth-child(3) {
+  animation-delay: 500ms
 }

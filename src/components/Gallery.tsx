@@ -8,44 +8,30 @@ const artwork = Object.values(
 )
 
 const animated = Object.values(
-  import.meta.glob('../assets/*.gif', {
+  import.meta.glob('../assets/*.{gif,webp}', {
     eager: true,
     as: 'url',
   }),
 )
 
-const quotes = [
-  'stop chasing things that do <em>nothing</em> for your <em>growth</em>',
-  'life is too short to spend it at war with <em>yourself</em>',
-  '<em>slow</em> progress beats <em>no</em> progress',
-]
-
 type GalleryProps = {
-  hasText?: boolean
+  isAnimated?: boolean
 }
 
 export function Gallery(props: GalleryProps) {
-  const markup = { __html: `${randoItem(quotes)}` }
-
-  if (props.hasText) {
-    return (
-      <section
-        id="quote"
-        className="container"
-        style={{ background: `center / 150% url(${randoItem(animated)})` }}
-      >
-        <p dangerouslySetInnerHTML={markup} />
-      </section>
-    )
-  }
+  const image = props.isAnimated ? randoItem(animated) : randoItem(artwork)
+  const re = new RegExp(/@[a-z]*/)
+  const artist = image.match(re)
 
   return (
     <section
       id="gallery"
       className="container"
       style={{
-        background: `center / cover url(${randoItem(artwork)})`,
+        background: `center / cover url(${image})`,
       }}
-    />
+    >
+      {artist && <span>{artist}</span>}
+    </section>
   )
 }

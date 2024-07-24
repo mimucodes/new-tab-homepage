@@ -8,7 +8,7 @@ export default function App() {
     <div className="grid">
       <Widget />
       <Gallery />
-      <Gallery hasText />
+      <Gallery isAnimated />
       <Focus />
       <Bookmarks />
     </div>

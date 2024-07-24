@@ -5,6 +5,8 @@ import { useModal } from '../hooks/use-modal'
 import { Modal } from './Modal'
 import { useContextMenu } from '../hooks/use-context-menu'
 
+// TODO switch the context menu to an actual menu and add the option to copy a link and open in a new tab
+
 type SiteBookmark = {
   title: string
   url: string
