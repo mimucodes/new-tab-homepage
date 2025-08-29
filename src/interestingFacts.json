@@ -1,0 +1,502 @@
+[
+  {
+    "id": "1",
+    "text": "Flamingos do not bend their knees backward. What appears to be a knee is actually their ankle joint.",
+    "category": "animals"
+  },
+  {
+    "id": "2",
+    "text": "A day on Venus is longer than a year (243 vs. 225 Earth days).",
+    "category": "space"
+  },
+  {
+    "id": "3",
+    "text": "Humans glow faintly in the dark, but the light emitted is 1,000x weaker than what our eyes can detect.",
+    "category": "body"
+  },
+  {
+    "id": "4",
+    "text": "Cleopatra lived closer to the invention of the iPhone than to the building of the Great Pyramid.",
+    "category": "history"
+  },
+  {
+    "id": "5",
+    "text": "Octopuses can rapidly edit their RNA in response to temperature changes, with some changes occurring within hours.",
+    "category": "animals"
+  },
+  {
+    "id": "6",
+    "text": "Saturn has 274 known moons, with Titan being the largest.",
+    "category": "space"
+  },
+  {
+    "id": "7",
+    "text": "The intestine regenerates its lining, known as the epithelium, every 5 to 7 days.",
+    "category": "body"
+  },
+  {
+    "id": "8",
+    "text": "The first computer bug was a literal moth stuck in a 1947 Harvard machine.",
+    "category": "history"
+  },
+  {
+    "id": "9",
+    "text": "Plants have memory, which allows them to retain information from their experiences and respond to environmental stimuli later..",
+    "category": "science"
+  },
+  {
+    "id": "10",
+    "text": "The Moon is slowly drifting away from Earth at 3.8 cm (1.5 inches) per year.",
+    "category": "space"
+  },
+  {
+    "id": "11",
+    "text": "The aorta, your largest artery, is as wide as a garden hose.",
+    "category": "body"
+  },
+  {
+    "id": "12",
+    "text": "Ancient Romans used fermented human urine as a cleaning agent to remove grease stains from clothing.",
+    "category": "history"
+  },
+  {
+    "id": "13",
+    "text": "Dolphins develop a unique signature whistle early in life, allowing them to be identified by other dolphins.",
+    "category": "animals"
+  },
+  {
+    "id": "14",
+    "text": "Neutron stars are so dense that a teaspoon would weigh 6 billion tons.",
+    "category": "space"
+  },
+  {
+    "id": "15",
+    "text": "The human brain is composed of approximately 75% water, making hydration crucial for optimal cognitive function.",
+    "category": "body"
+  },
+  {
+    "id": "16",
+    "text": "The first webcam was invented to monitor a coffee pot at Cambridge University.",
+    "category": "history"
+  },
+  {
+    "id": "17",
+    "text": "An elephant's trunk is a complex network of 40,000 muscles, compared to just 600 in the entire human body.",
+    "category": "animals"
+  },
+  {
+    "id": "18",
+    "text": "Pluto has a heart-shaped glacier known as Sputnik Planitia.",
+    "category": "space"
+  },
+  {
+    "id": "19",
+    "text": "You produce about 1 to 1.5 liters of saliva daily.",
+    "category": "body"
+  },
+  {
+    "id": "20",
+    "text": "In the 17th century condoms were often made from animal intestines, such as those of sheep, calves, or goats.",
+    "category": "history"
+  },
+  {
+    "id": "21",
+    "text": "Polar bears have black skin to absorb sunlight under their white fur.",
+    "category": "animals"
+  },
+  {
+    "id": "22",
+    "text": "The Sun's core temperature reaches around 15 million °C (27 million °F), where nuclear fusion occurs",
+    "category": "space"
+  },
+  {
+    "id": "23",
+    "text": "The human brain is nearly 60% fat, which makes essential fatty acids crucial for brain health.",
+    "category": "body"
+  },
+  {
+    "id": "24",
+    "text": "The word 'robot' comes from the Czech word 'robota', which means 'forced labor'.",
+    "category": "history"
+  },
+  {
+    "id": "25",
+    "text": "The immortal jellyfish can revert to its juvenile form, effectively resetting its lifespan.",
+    "category": "animals"
+  },
+  {
+    "id": "26",
+    "text": "Jupiter's Great Red Spot is a vast anticyclonic storm that has been raging for at least 150 years.",
+    "category": "space"
+  },
+  {
+    "id": "27",
+    "text": "The cornea is the only part of the human body that lacks a blood supply—it gets oxygen from the air.",
+    "category": "body"
+  },
+  {
+    "id": "28",
+    "text": "The first photograph was taken in 1826 and required 8 hours of exposure.",
+    "category": "history"
+  },
+  {
+    "id": "29",
+    "text": "Blue whales possess the largest heart of any living creature, weighing approximately 900kg.",
+    "category": "animals"
+  },
+  {
+    "id": "30",
+    "text": "Mars has the tallest volcano in the solar system — Olympus Mons, rising about 22 km (14 miles) high.",
+    "category": "space"
+  },
+  {
+    "id": "31",
+    "text": "Your tongue print is unique, like a fingerprint.",
+    "category": "body"
+  },
+  {
+    "id": "32",
+    "text": "The microwave was invented by accident after an engineer noticed a magnetron tube melted a candy bar in his pocket.",
+    "category": "history"
+  },
+  {
+    "id": "33",
+    "text": "Butterflies taste with their feet.",
+    "category": "animals"
+  },
+  {
+    "id": "34",
+    "text": "The coldest known place in the universe is the Boomerang Nebula, which has a temperature of about −272°C (-458°F).",
+    "category": "space"
+  },
+  {
+    "id": "35",
+    "text": "Your taste buds regenerate every 10 to 14 days.",
+    "category": "body"
+  },
+  {
+    "id": "36",
+    "text": "A tree absorbs anywhere between 10 and 40kg of CO2 per year.",
+    "category": "earth"
+  },
+  {
+    "id": "37",
+    "text": "Crows can remember human faces and hold grudges for up to 17 years.",
+    "category": "animals"
+  },
+  {
+    "id": "38",
+    "text": "On the Moon, you would weigh approximately 16.5% of your weight on Earth due to its lower gravity.",
+    "category": "space"
+  },
+  {
+    "id": "39",
+    "text": "Atoms never truly stop moving, even at absolute zero—they just reach their lowest quantum vibrations.",
+    "category": "science"
+  },
+  {
+    "id": "40",
+    "text": "The tiny bumps on the F and J keyboard keys help touch-typists locate the home position.",
+    "category": "everyday"
+  },
+  {
+    "id": "41",
+    "text": "A shrimp's heart is located in its head.",
+    "category": "animals"
+  },
+  {
+    "id": "42",
+    "text": "The Milky Way galaxy is about 100,000 light-years wide.",
+    "category": "space"
+  },
+  {
+    "id": "43",
+    "text": "Helium is the only element that cannot be solidified at standard pressure.",
+    "category": "science"
+  },
+  {
+    "id": "44",
+    "text": "At least half of the oxygen produced on Earth comes from the ocean, mostly from tiny photosynthesizing plankton.",
+    "category": "earth"
+  },
+  {
+    "id": "45",
+    "text": "Sloths can hold their breath underwater for as long as 40 minutes.",
+    "category": "animals"
+  },
+  {
+    "id": "46",
+    "text": "Venus rotates clockwise, which is opposite to most planets.",
+    "category": "space"
+  },
+  {
+    "id": "47",
+    "text": "Fire tornadoes can reach temperatures of up to 1,090°C (2,000°F).",
+    "category": "science"
+  },
+  {
+    "id": "48",
+    "text": "The reason golf balls have dimples is because they help the ball fly farther by reducing air resistance.",
+    "category": "everyday"
+  },
+  {
+    "id": "49",
+    "text": "Koalas have fingerprints nearly identical to humans.",
+    "category": "animals"
+  },
+  {
+    "id": "50",
+    "text": "The first human-made object in space was Germany's V-2 rocket in 1944.",
+    "category": "space"
+  },
+  {
+    "id": "51",
+    "text": "Petrichor is the smell of rain when it falls on dry ground.",
+    "category": "science"
+  },
+  {
+    "id": "52",
+    "text": "The little pocket inside jeans was originally designed for pocket watches in the 1800s.",
+    "category": "everyday"
+  },
+  {
+    "id": "53",
+    "text": "Baby porcupines are called porcupettes.",
+    "category": "animals"
+  },
+  {
+    "id": "54",
+    "text": "The Hubble Space Telescope orbits Earth at 17,000 mph (27,300 km/h).",
+    "category": "space"
+  },
+  {
+    "id": "55",
+    "text": "Lava is not nearly hot enough to melt a diamond.",
+    "category": "science"
+  },
+  {
+    "id": "56",
+    "text": "The male seahorse gives birth, not the female.",
+    "category": "animals"
+  },
+  {
+    "id": "57",
+    "text": "Moonquakes are seismic events that occur on the Moon, similar to earthquakes on Earth.",
+    "category": "space"
+  },
+  {
+    "id": "58",
+    "text": "If you hold a solid piece of pure gallium metal in your hand, your body heat can melt it into its liquid form.",
+    "category": "science"
+  },
+  {
+    "id": "59",
+    "text": "The number 142,857 is cyclic: multiplying it by 1-6 always gives the same digits in the same order.",
+    "category": "math"
+  },
+  {
+    "id": "60",
+    "text": "Despite their long necks, giraffes have the same number of vertebrae as humans: seven.",
+    "category": "animals"
+  },
+  {
+    "id": "61",
+    "text": "The largest known star is UY Scuti, a red supergiant star with a radius approximately 909 times that of the Sun.",
+    "category": "space"
+  },
+  {
+    "id": "62",
+    "text": "The shortest possible time interval is the Planck time (5.39 × 10⁻⁴⁴ seconds).",
+    "category": "science"
+  },
+  {
+    "id": "63",
+    "text": "The blue whale's tongue can weigh 2.7 to 3.6 metric tons (6,000 to 8,000 pounds), roughly the weight of a mature elephant.",
+    "category": "animals"
+  },
+  {
+    "id": "64",
+    "text": "Light takes 8 minutes 20 seconds to travel from the Sun to Earth.",
+    "category": "space"
+  },
+  {
+    "id": "65",
+    "text": "Diamond is the hardest naturally occurring material on Earth.",
+    "category": "science"
+  },
+  {
+    "id": "66",
+    "text": "Bamboo is the world's fastest-growing plant. Some types can grow a full meter in a single day.",
+    "category": "earth"
+  },
+  {
+    "id": "67",
+    "text": "Hippos are the closest living relatives to whales and dolphins.",
+    "category": "animals"
+  },
+  {
+    "id": "68",
+    "text": "The Kármán line marks the boundary between Earth's atmosphere and space at 100 kilometers (62 miles) altitude.",
+    "category": "space"
+  },
+  {
+    "id": "69",
+    "text": "Hydrogen makes up roughly 75% of the observable universe.",
+    "category": "science"
+  },
+  {
+    "id": "70",
+    "text": "The snailfish is the deepest recorded fish species, which was filmed at a depth of 8,336 meters (27,349 feet).",
+    "category": "animals"
+  },
+  {
+    "id": "71",
+    "text": "The ISS orbits Earth once every 92 min, which allows astronauts to see as many as 16 sunrises and sunsets a day.",
+    "category": "space"
+  },
+  {
+    "id": "72",
+    "text": "The word 'laser' stands for 'Light Amplification by Stimulated Emission of Radiation'.",
+    "category": "science"
+  },
+  {
+    "id": "73",
+    "text": "The tiger pistol shrimp generates a powerful shockwave by rapidly snapping its large claw.",
+    "category": "animals"
+  },
+  {
+    "id": "74",
+    "text": "The first photo of Earth from space was taken in 1946 by a V-2 rocket.",
+    "category": "space"
+  },
+  {
+    "id": "75",
+    "text": "The smallest possible black hole could be as small as an atom but have the mass of a large mountain.",
+    "category": "science"
+  },
+  {
+    "id": "76",
+    "text": "It takes about 12 worker bees their entire lives to produce a single teaspoon of honey.",
+    "category": "animals"
+  },
+  {
+    "id": "77",
+    "text": "Uranus' extreme axial tilt causes the planet to rotate on its side, producing unique seasons.",
+    "category": "space"
+  },
+  {
+    "id": "78",
+    "text": "The smell of metal is actually the scent of your skin corroding the metal.",
+    "category": "science"
+  },
+  {
+    "id": "79",
+    "text": "The mimic octopus can impersonate over 15 different sea creatures to deter predators.",
+    "category": "animals"
+  },
+  {
+    "id": "80",
+    "text": "The Moon's surface is covered in a layer of dust called regolith.",
+    "category": "space"
+  },
+  {
+    "id": "81",
+    "text": "The oldest known DNA ever found on earth dates back approximately 2 million years.",
+    "category": "science"
+  },
+  {
+    "id": "82",
+    "text": "Monotremes are the only group of living mammals that reproduce by laying eggs.",
+    "category": "animals"
+  },
+  {
+    "id": "83",
+    "text": "Voyager 1 is the most distant human-made object, located over 25 billion km (~15 billion miles) from Earth",
+    "category": "space"
+  },
+  {
+    "id": "84",
+    "text": "Any month that starts on a Sunday contains a Friday the 13th.",
+    "category": "math"
+  },
+  {
+    "id": "85",
+    "text": "A group of owls is called a parliament.",
+    "category": "animals"
+  },
+  {
+    "id": "86",
+    "text": "The word 'astronaut' comes from the Greek astron ('star') and nautēs ('sailor'), literally meaning 'star sailor.'",
+    "category": "space"
+  },
+  {
+    "id": "87",
+    "text": "The fastest land animal is the cheetah, which can go from 0 to 100 km/h (0 to 60 mph) in just 3 seconds.",
+    "category": "animals"
+  },
+  {
+    "id": "88",
+    "text": "Hyperion, the tallest tree on Earth, towers over the Statue of Liberty by 21 meters.",
+    "category": "earth"
+  },
+  {
+    "id": "89",
+    "text": "Famously slow-moving, a sloth travels at an average speed of 0.24 km/h (0.15 mph)",
+    "category": "animals"
+  },
+  {
+    "id": "90",
+    "text": "The bee hummingbird is the smallest living bird and produces eggs as small as coffee beans.",
+    "category": "animals"
+  },
+  {
+    "id": "91",
+    "text": "The electric eel can generate shocks up to 600 volts.",
+    "category": "animals"
+  },
+  {
+    "id": "92",
+    "text": "Bone marrow is the fastest-growing tissue, producing billions of new blood cells every day.",
+    "category": "science"
+  },
+  {
+    "id": "93",
+    "text": "The whale shark is the largest fish in the world, which has been known to get as large as 18 meters (60 feet)",
+    "category": "animals"
+  },
+  {
+    "id": "94",
+    "text": "Bats are the only mammals capable of true, sustained flight.",
+    "category": "animals"
+  },
+  {
+    "id": "95",
+    "text": "Ants can carry 10 to 50 times their body weight due to their high ratio of muscle tissue to body mass.",
+    "category": "animals"
+  },
+  {
+    "id": "96",
+    "text": "Antarctica is the only continent without reptiles or snakes.",
+    "category": "earth"
+  },
+  {
+    "id": "97",
+    "text": "The peregrine falcon is the fastest animal, capable of reaching diving speeds over 320 km/h (200 mph)",
+    "category": "animals"
+  },
+  {
+    "id": "98",
+    "text": "The only bird that can fly backward is the hummingbird.",
+    "category": "animals"
+  },
+  {
+    "id": "99",
+    "text": "The lyrebird can mimic chainsaws, car alarms, and camera shutters.",
+    "category": "animals"
+  },
+  {
+    "id": "100",
+    "text": "Lake Vostok is the largest known subglacial lake in Antarctica.",
+    "category": "earth"
+  }
+]

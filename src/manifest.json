@@ -1,11 +1,11 @@
 {
   "name": "New Tab",
   "version": "1.0.0",
-  "description": "new tab replacement with weather info",
+  "description": "a clean new tab replacement with weather, bookmarks, focus notes and fun facts",
   "manifest_version": 3,
-  "author": "Monica Gabriel",
+  "author": "mimucodes",
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
-  "permissions": ["geolocation", "favicon"]
+  "permissions": ["geolocation", "favicon", "topSites", "storage"]
 }

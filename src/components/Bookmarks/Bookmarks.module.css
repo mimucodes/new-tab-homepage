@@ -1,0 +1,70 @@
+#bookmarks {
+  grid-area: bookmarks;
+  display: grid;
+  gap: 16px;
+  width: 100%;
+  min-height: 136px;
+  position: relative;
+}
+
+#bookmarks ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 106px);
+  row-gap: 32px;
+  justify-content: center;
+}
+
+#bookmarks li {
+  display: inline-block;
+  position: relative;
+  animation: none;
+}
+
+.bookmarkItem {
+  display: grid;
+  grid-template-columns: 88px;
+  justify-content: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  text-align: center;
+  font-size: 1em;
+}
+
+.bookmarkIcon {
+  background-color: var(--white);
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--border-primary);
+  width: 64px;
+  height: 64px;
+  margin: auto;
+  transition: border 0.5ms;
+}
+
+.bookmarkIcon.dragOver {
+  border: 1px solid var(--border-primary-solid);
+  opacity: 0.25;
+}
+
+.bookmarkTitle p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+.actions {
+  position: absolute;
+  top: -12px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+#addSite {
+  justify-self: center;
+}

@@ -1,3 +1,5 @@
+@import 'variables.css';
+
 @font-face {
   font-family: "Be Vietnam Pro";
   src: local("Trickster"),
@@ -13,45 +15,8 @@
   flex-direction: column;
 }
 
-$white: hsl(0, 0%, 100%);
-$gray-50: hsl(240, 50%, 98%);
-$gray-100: hsl(230, 26%, 90%);
-$gray-200: hsl(228, 22%, 84%);
-$gray-300: hsl(224, 16%, 70%);
-$gray-500: hsl(224, 18%, 52%);
-$gray-900: hsl(236, 36%, 11%);
-$color: hsl(99, 80%, 28%);
-
-$text-white: $white;
-$text-primary: $gray-900;
-$text-secondary: $gray-500;
-$text-tertiary: $gray-300;
-$text-placeholder: $gray-300;
-
-$bg-primary: $gray-50;
-$bg-secondary: $white;
-$bg-primary-solid: $gray-900;
-
-$fg-accent: $color;
-$fg-primary: $gray-300;
-$fg-primary-solid: $gray-900;
-
-$border-primary: $gray-100;
-$border-primary-solid: $gray-900;
-$border-accent: $gray-300;
-
-$fw-light: 300;
-$fw-regular: 400;
-$fw-medium: 500;
-$fw-semibold: 700;
-
-$border-radius: 16px;
-$soft-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03),
-  0 1px 6px -1px rgba(0, 0, 0, 0.02),
-  0 2px 4px 0 rgba(0, 0, 0, 0.02);
-
 :root {
-  accent-color: $fg-accent;
+  accent-color: var(--fg-accent);
 }
 
 * {
@@ -65,30 +30,30 @@ body {
 }
 
 html {
-  color: $text-secondary;
+  color: var(--text-secondary);
 }
 
 body {
   -webkit-font-smoothing: antialiased;
   font-family: 'Be Vietnam Pro', sans-serif;
-  font-weight: $fw-regular;
-  font-size: 100%;
-  background-color: $bg-primary;
+  font-weight: var(--fw-regular);
+  font-size: 15px;
+  line-height: 1.3;
+  background-color: var(--bg-primary);
   position: relative;
   overflow: hidden;
 
   ::selection {
-    background: $bg-primary;
-    color: $fg-accent;
+    background: var(--bg-primary);
+    color: var(--fg-accent);
   }
 
   @include center;
 }
 
 h2 {
-  font-size: 1.3em;
-  font-weight: $fw-medium;
-  color: $text-primary;
+  font-size: 1.25em;
+  font-weight: var(--fw-medium);
 }
 
 p {
@@ -103,21 +68,12 @@ svg {
 
 b,
 strong {
-  font-weight: $fw-semibold;
+  font-weight: var(--fw-semibold);
 }
 
 ul {
   list-style-type: none;
   padding: 0;
-}
-
-button {
-  border: none;
-  background: none;
-  margin: 0;
-  padding: 0;
-  color: inherit;
-  font: inherit;
 }
 
 input,
@@ -130,11 +86,11 @@ select {
 
 input,
 textarea {
-  color: $text-primary;
+  color: var(--text-primary);
 
   &::placeholder {
-    color: $text-placeholder;
-    font-weight: $fw-light;
+    color: var(--text-placeholder);
+    font-weight: var(--fw-light);
   }
 
   &:focus {
@@ -142,34 +98,83 @@ textarea {
   }
 }
 
-.grid {
+button {
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  font-size: 14px;
+}
+
+form {
   display: grid;
   gap: 24px;
-  grid-template-columns: repeat(3, max-content);
+
+  fieldset {
+    border: 0;
+    padding: 0;
+
+    display: grid;
+    gap: 4px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  .header {
+    font-size: 16px;
+    color: var(--text-primary);
+  }
+
+  .main {
+    display: grid;
+    gap: 16px;
+  }
+
+  .footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
+
+input {
+  width: 100%;
+  padding: 8px 16px;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--border-radius-sm);
+  background: transparent;
+
+  &:focus {
+    border: 1px solid var(--border-primary);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-areas:
+    'weather weather quote'
+    'fact focus focus'
+    'bookmarks bookmarks bookmarks';
+  gap: 24px;
+  max-width: 680px;
 }
 
 .container {
-  border: 1px solid $border-primary;
-  background-color: $bg-secondary;
+  border: 1px solid var(--border-primary);
+  background-color: var(--bg-secondary);
   padding: 32px;
-  border-radius: $border-radius;
-}
-
-.ellipsis {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.text-balance {
-  text-wrap: balance;
+  border-radius: var(--border-radius-lg);
 }
 
 #widget {
+  grid-area: weather;
   display: grid;
-  grid-template-columns: repeat(2, max-content);
+  grid-template-columns: repeat(2, auto);
   gap: 24px;
-  grid-column: span 2;
+  position: relative;
 
   .greeting {
     grid-column: span 2;
@@ -177,6 +182,7 @@ textarea {
     input {
       field-sizing: content;
       border: 0;
+      color: var(--text-secondary);
     }
   }
 
@@ -184,264 +190,64 @@ textarea {
     text-transform: lowercase;
   }
 
-  .time,
-  .temperature .current {
-    font-size: 24px;
-    font-weight: $fw-semibold;
-    color: $text-primary;
+  .time {
+    font-size: 28px;
+    font-weight: var(--fw-semibold);
+    color: var(--text-primary);
   }
 
-  .temperature {
-    text-align: right;
+  &:hover .hover-show {
+    opacity: 1;
+    pointer-events: auto;
   }
+}
 
-  .weather {
-    display: grid;
-    grid-template-columns: repeat(3, max-content);
-    gap: 32px;
-    grid-column: span 2;
-    font-size: 14px;
-  }
+#quote {
+  grid-area: quote;
+  min-height: 248px;
+  aspect-ratio: 1;
+
 }
 
 .label {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 1px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 
-.btn-icon {
-  @include center;
-  background: $bg-secondary;
-  color: $fg-primary;
-  width: 32px;
-  height: 32px;
-  border-radius: 100%;
-  border: 1px solid $border-primary;
-  box-shadow: $soft-shadow;
-  cursor: pointer;
-
-  &:hover {
-    color: $fg-primary-solid;
-  }
-}
-
-#gallery {
-  overflow: hidden;
-  width: 240px;
-  color: $text-white;
-  font-size: 11px;
-  position: relative;
-
-  span {
-    position: absolute;
-    bottom: 8px;
-    right: 8px;
-    opacity: 0;
-  }
-
-  &:hover>span {
-    opacity: 1;
-  }
-}
 
 #focus {
-  grid-column: span 2;
+  grid-area: focus;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
   position: relative;
-
-  em {
-    font-style: normal;
-    text-decoration: underline 2px $fg-accent;
-    text-underline-offset: 3px;
-  }
 
   textarea {
     border: 0;
     resize: none;
     text-wrap: balance;
     min-height: 40px;
-    inline-size: 310px;
+    //inline-size: 280px;
     field-sizing: content;
   }
 
-  button {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    opacity: 0;
-  }
-
-  &:hover>textarea:not(:placeholder-shown)+button {
+  &:hover>textarea:not(:placeholder-shown)+.hover-show {
     opacity: 1;
+    pointer-events: auto;
   }
 }
 
-#bookmarks {
-  display: grid;
-  gap: 16px;
-  width: 100%;
-  grid-column: span 3;
+#facts {
+  grid-area: fact;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  font-size: 14px;
 
-  ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 106px);
-    row-gap: 32px;
-    justify-content: center;
-
-    li {
-      display: inline-block;
-      position: relative;
-      animation: none;
-
-      .bookmark-item {
-        display: grid;
-        grid-template-columns: 88px;
-        justify-content: center;
-        gap: 8px;
-        color: $text-secondary;
-        text-decoration: none;
-        text-align: center;
-        font-size: 1em;
-      }
-
-      .bookmark-icon {
-        background-color: $white;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 32px;
-        border-radius: $border-radius;
-        border: 1px solid $border-primary;
-        width: 64px;
-        height: 64px;
-        margin: auto;
-        transition: border .5ms;
-
-        &.target {
-          border: 1px solid $border-accent;
-        }
-      }
-
-      .bookmark-buttons {
-        position: absolute;
-        top: -12px;
-        left: 0;
-
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-      }
-    }
-  }
-
-  .mouse-hover {
-    opacity: 0;
-  }
-
-  &:hover {
-    .mouse-hover {
-      opacity: 1;
-    }
-  }
-
-  #add-site {
-    justify-self: center;
-  }
-}
-
-.modal-overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: hsla(0, 0%, 0%, 0.5);
-  z-index: 9999;
-  @include center;
-
-  .modal-container {
-    width: 352px;
-    background-color: $white;
-    border-radius: $border-radius;
-    padding: 32px;
-    position: relative;
-
-    .header {
-      font-size: 16px;
-      color: $text-primary;
-    }
-
-    .main {
-      display: grid;
-      gap: 16px;
-    }
-
-    .footer {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    form {
-      display: grid;
-      gap: 24px;
-
-      fieldset {
-        border: 0;
-        padding: 0;
-
-        display: grid;
-        gap: 4px
-      }
-
-      label {
-        font-size: 14px;
-      }
-    }
-
-    input {
-      width: 100%;
-      padding: 8px 16px;
-      border: 1px solid $border-primary;
-      border-radius: calc($border-radius / 2);
-      background: transparent;
-
-      &:focus {
-        border: 1px solid $border-accent;
-      }
-    }
-  }
-
-  .modal-close {
-    position: absolute;
-    top: 6px;
-    right: 10px;
-    line-height: 1;
-    font-size: 24px;
-    padding: 4px;
-    cursor: pointer;
-    color: $text-secondary;
-
-    &:hover {
-      color: $text-primary;
-    }
-  }
-
-  button {
-    padding: 8px 16px;
-    background-color: transparent;
-    color: $text-secondary;
-    border: 1px solid $border-primary;
-    border-radius: calc($border-radius / 2);
-    cursor: pointer;
-
-    &[type=submit] {
-      background-color: $bg-primary-solid;
-      color: $white;
-      border: $border-primary-solid;
-    }
+  p {
+    text-wrap: pretty;
   }
 }
 
@@ -456,18 +262,21 @@ input[name="username"] {
   }
 }
 
-@media (max-width: 690px) {
-  .grid {
-    grid-template-columns: 1fr;
+.top-right {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
 
-    section {
-      grid-column: initial !important;
-    }
-  }
+[id*="bookmarks"]:hover .hover-show {
+  opacity: 1;
+  pointer-events: auto;
+}
 
-  #gallery {
-    display: none;
-  }
+.hover-show {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
 }
 
 @keyframes blink {
@@ -478,7 +287,7 @@ input[name="username"] {
 
 .dot {
   animation: 1s blink infinite;
-  fill: $fg-primary;
+  fill: var(--fg-primary);
 }
 
 .dot:nth-child(2) {
@@ -487,4 +296,18 @@ input[name="username"] {
 
 .dot:nth-child(3) {
   animation-delay: 500ms
+}
+
+@media (max-width: 680px) {
+  .grid {
+    grid-template-areas:
+      'weather'
+      'focus'
+      'bookmarks';
+  }
+
+  #quote,
+  #facts {
+    display: none;
+  }
 }

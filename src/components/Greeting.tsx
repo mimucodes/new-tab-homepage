@@ -1,10 +1,10 @@
-import { useLocalStorage } from '../hooks/use-local-storage'
+import { useChromeStorage } from '../hooks/useChromeStorage'
 import { now } from '../helpers/time.helpers'
 
 const hours = now.getHours()
 
 export function Greeting() {
-  const [username, setUsername] = useLocalStorage('name', '')
+  const [username, setUsername] = useChromeStorage('name', '')
 
   let greeting =
     hours >= 5 && hours < 12

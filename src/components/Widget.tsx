@@ -1,6 +1,6 @@
 import { DateTime } from './DateTime'
 import { Greeting } from './Greeting'
-import { Weather } from './Weather'
+import { Weather } from './Weather/Weather'
 
 export function Widget() {
   return (

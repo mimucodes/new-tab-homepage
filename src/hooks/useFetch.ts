@@ -5,9 +5,9 @@ type State<T> = {
   data?: T
 }
 
-export function useFetch<T = unknown>(url: string): State<T> {
+export function useFetch<T = unknown>(url?: string | null): State<T> {
   const [status, setStatus] = useState('idle')
-  const [data, setData] = useState(undefined)
+  const [data, setData] = useState<T | undefined>(undefined)
 
   useEffect(() => {
     if (!url) return

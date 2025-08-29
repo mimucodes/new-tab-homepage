@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import styles from './Modal.module.css'
 
 interface ModalProps {
   children?: ReactNode
@@ -10,10 +11,13 @@ export function Modal(props: ModalProps) {
   return (
     <>
       {props.isOpen && (
-        <div className="modal-overlay">
-          <div onClick={e => e.stopPropagation()} className="modal-container">
+        <div className={styles.modalOverlay}>
+          <div
+            onClick={e => e.stopPropagation()}
+            className={styles.modalContainer}
+          >
             {props.children}
-            <span onClick={() => props.toggle()} className="modal-close">
+            <span onClick={() => props.toggle()} className={styles.modalClose}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
