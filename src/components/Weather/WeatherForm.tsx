@@ -2,16 +2,18 @@ import { useState } from 'react'
 import { Banner } from '../Banner'
 import { Button } from '../Button'
 
+export type Location = { latitude: number; longitude: number }
+
 type WeatherFormProps = {
-  onComplete: (
-    apiKey: string,
-    location: { latitude: number; longitude: number },
-  ) => void
+  onComplete: (apiKey: string, location: Location) => void
   onCancel: () => void
   initialApiKey?: string
 }
 
-type ValidationStep = 'idle' | 'validating-api' | 'getting-location' | 'success'
+type UiError = {
+  text: string
+  details?: string
+}
 
 export function WeatherForm({
   onComplete,
@@ -19,8 +21,8 @@ export function WeatherForm({
   initialApiKey = '',
 }: WeatherFormProps) {
   const [apiKey, setApiKey] = useState(initialApiKey)
-  const [error, setError] = useState<string | null>(null)
-  const [step, setStep] = useState<ValidationStep>('idle')
+  const [error, setError] = useState<UiError | null>(null)
+  const [isLoading, setIsLoading] = useState(false)
 
   async function validateApiKey(key: string): Promise<boolean> {
     try {
@@ -28,60 +30,76 @@ export function WeatherForm({
         `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${key}`,
       )
 
-      if (response.status === 401) {
-        throw new Error('Invalid API key')
-      }
-
       if (!response.ok) {
-        throw new Error(`API request failed: ${response.status}`)
+        switch (response.status) {
+          case 401:
+            throw {
+              text: 'Invalid API key',
+              details: 'New keys may take up to 2 hours to activate.',
+            }
+          case 429:
+            throw {
+              text: 'API rate limit exceeded',
+              details: 'Try again later.',
+            }
+          case 500:
+          case 502:
+          case 503:
+          case 504:
+            throw {
+              text: 'OpenWeather server error',
+              details: 'Try again later.',
+            }
+          default:
+            throw {
+              text: 'Unexpected API error',
+              details: `status ${response.status}`,
+            }
+        }
       }
-
-      return true
-    } catch (err) {
-      if (err instanceof Error) {
-        throw err
+    } catch (error: any) {
+      if (error?.text) throw error
+      throw {
+        text: 'Could not reach OpenWeather',
+        details: 'Check your connection or try again later.',
       }
-      throw new Error('Failed to validate API key')
     }
+
+    return true
   }
 
-  function getCurrentLocation(): Promise<{
-    latitude: number
-    longitude: number
-  }> {
+  function getCurrentLocation(): Promise<Location> {
     return new Promise((resolve, reject) => {
       if (!navigator.geolocation) {
-        reject(new Error('Geolocation is not supported by this browser'))
+        reject({ text: 'Geolocation is not supported by this browser' })
         return
       }
 
       navigator.geolocation.getCurrentPosition(
-        position => {
+        position =>
           resolve({
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,
-          })
-        },
+          }),
         err => {
-          let message = 'Failed to get location'
           switch (err.code) {
             case err.PERMISSION_DENIED:
-              message =
-                'Location access denied. Please enable location permissions.'
+              reject({
+                text: 'Location access denied',
+                details: 'Please enable location permissions in your browser.',
+              })
               break
             case err.POSITION_UNAVAILABLE:
-              message = 'Location information unavailable.'
+              reject({ text: 'Location information unavailable.' })
               break
             case err.TIMEOUT:
-              message = 'Location request timed out.'
+              reject({ text: 'Location request timed out.' })
               break
+            default:
+              reject({ text: 'Failed to get location.' })
           }
-          reject(new Error(message))
         },
-        {
-          timeout: 10000, // 10 second timeout
-          enableHighAccuracy: false,
-        },
+        { timeout: 10000, enableHighAccuracy: false },
       )
     })
   }
@@ -90,56 +108,65 @@ export function WeatherForm({
     const trimmedApiKey = apiKey.trim()
 
     if (!trimmedApiKey) {
-      setError('Please enter your API key')
+      setError({
+        text: 'Please enter your API key',
+      })
       return
     }
 
-    setError(null)
+    setIsLoading(true)
 
     try {
-      setStep('validating-api')
       await validateApiKey(trimmedApiKey)
-
-      setStep('getting-location')
       const location = await getCurrentLocation()
-
-      setStep('success')
       onComplete(trimmedApiKey, location)
-    } catch (err) {
-      setStep('idle')
-      setError(err instanceof Error ? err.message : 'Setup failed')
+      setError(null)
+    } catch (err: any) {
+      if (err?.text) setError(err)
+      else setError({ text: 'Setup failed' })
+    } finally {
+      setIsLoading(false)
     }
-  }
-
-  function getButtonText(): string {
-    if (isLoading) {
-      return 'Setting up...'
-    }
-    return 'Use my location'
   }
 
   function getStatusBanner() {
     if (error) {
       return (
         <Banner variant="error" onDismiss={() => setError(null)}>
-          {error}
+          <p>{error.text}</p>
+          {error.details && (
+            <p>
+              <small>{error.details}</small>
+            </p>
+          )}
         </Banner>
       )
     }
 
-    return (
-      <Banner variant="warning">
-        <p>I'll need your location to show local weather data</p>
-      </Banner>
-    )
+    return null
   }
-
-  const isLoading = step !== 'idle'
 
   return (
     <form onSubmit={e => e.preventDefault()}>
       <div className="header">Weather setup</div>
       <div className="main">
+        <div className="explanation">
+          To show you the local weather, this extension needs:
+          <ul>
+            <li>
+              A free API key from{' '}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://home.openweathermap.org/api_keys"
+              >
+                openweathermap.org
+              </a>
+            </li>
+            <li>Access to you location</li>
+          </ul>
+        </div>
+
         <fieldset>
           <label htmlFor="apikey">OpenWeather API Key:</label>
           <input
@@ -147,24 +174,18 @@ export function WeatherForm({
             type="text"
             value={apiKey}
             onChange={e => setApiKey(e.target.value)}
-            placeholder="Enter your API key"
+            placeholder="Paste your key here"
             disabled={isLoading}
           />
         </fieldset>
-
         {getStatusBanner()}
       </div>
       <div className="footer">
         <Button variant="secondary" onClick={onCancel} disabled={isLoading}>
           Cancel
         </Button>
-        <Button
-          variant="primary"
-          type="submit"
-          onClick={handleSubmit}
-          disabled={isLoading}
-        >
-          {getButtonText()}
+        <Button variant="primary" onClick={handleSubmit} disabled={isLoading}>
+          Use my location
         </Button>
       </div>
     </form>

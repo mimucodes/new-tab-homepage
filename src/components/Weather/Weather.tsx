@@ -10,14 +10,12 @@ import { IForecastWeather, IRealtimeWeather } from '../../types'
 import { Button } from '../Button'
 import { Modal } from '../Modal'
 import styles from './Weather.module.css'
-import { WeatherForm } from './WeatherForm'
+import { Location, WeatherForm } from './WeatherForm'
 
 const STORAGE_KEYS = {
   API_KEY: 'openweather_api_key',
   LOCATION: 'openweather_location',
 }
-
-type Location = { latitude: number; longitude: number }
 
 export function Weather() {
   const [apiKey, setApiKey, isLoadingApiKey] = useChromeStorage<string | null>(
@@ -51,10 +49,10 @@ export function Weather() {
     setModalOpen(false)
   }
 
+  // show setup button
   if (!apiKey || !location) {
     return (
       <>
-        <div className={styles.weather}></div>
         <div className={styles.stats}>
           <Button variant="secondary" onClick={() => setModalOpen(true)}>
             Setup Weather
@@ -71,6 +69,7 @@ export function Weather() {
     )
   }
 
+  // loading
   if (
     realtimeStatus === 'fetching' ||
     forecastStatus === 'fetching' ||
@@ -112,18 +111,16 @@ export function Weather() {
     )
   }
 
+  // error
   if (realtimeStatus === 'error' || forecastStatus === 'error') {
     return (
       <>
-        <div className={styles.weather}>
-          <p className={styles.temperature}>404</p>
-          <p>weather not found?!?</p>
-        </div>
         <div className={styles.stats}>
           <Button variant="secondary" onClick={() => setModalOpen(true)}>
             Retry setup
           </Button>
         </div>
+
         <Modal isOpen={modalOpen} toggle={() => setModalOpen(false)}>
           <WeatherForm
             onComplete={handleSetupComplete}
@@ -190,4 +187,6 @@ export function Weather() {
       </>
     )
   }
+
+  return
 }

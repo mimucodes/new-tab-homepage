@@ -43,12 +43,23 @@ body {
   position: relative;
   overflow: hidden;
 
-  ::selection {
-    background: var(--bg-primary);
-    color: var(--fg-accent);
-  }
-
   @include center;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link {
+  color: var(--text-accent);
+}
+
+a:hover {
+  color: var(--text-accent-solid);
+}
+
+a:focus {
+  outline-color: var(--border-accent);
 }
 
 h2 {
@@ -120,7 +131,7 @@ form {
   }
 
   label {
-    font-size: 14px;
+    color: var(--text-tertiary);
   }
 
   .header {
@@ -148,8 +159,12 @@ input {
   background: transparent;
 
   &:focus {
-    border: 1px solid var(--border-primary);
+    border: 1px solid var(--border-secondary);
   }
+}
+
+small {
+  font-size: 12px;
 }
 
 .grid {

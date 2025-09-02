@@ -1,7 +1,7 @@
 {
   "name": "New Tab",
-  "version": "1.0.0",
-  "description": "a clean new tab replacement with weather, bookmarks, focus notes and fun facts",
+  "version": "1.0.1",
+  "description": "A minimal new tab that keeps essentials close and adds a bit of personality without clutter",
   "manifest_version": 3,
   "author": "mimucodes",
   "chrome_url_overrides": {

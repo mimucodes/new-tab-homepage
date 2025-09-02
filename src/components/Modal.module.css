@@ -10,11 +10,20 @@
 
   .modalContainer {
     width: 100%;
-    max-width: 440px;
+    max-width: 448px;
     background-color: var(--white);
     border-radius: var(--border-radius-md);
     padding: 32px;
     position: relative;
+
+    ul {
+      list-style-type: '- ';
+      padding: 8px 12px;
+
+      li::marker {
+        color: var(--text-tertiary);
+      }
+    }
   }
 }
 

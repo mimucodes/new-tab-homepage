@@ -1,25 +1,34 @@
 :root {
-  --gray-900: oklch(0.22 0.0209 264);
+  --gray-950: oklch(0.22 0.0209 264);
+  --gray-900: oklch(0.33 0.0292 275);
   --gray-600: oklch(0.42 0.0346 286);
   --gray-400: oklch(0.62 0.0345 265);
   --gray-300: oklch(0.73 0.0292 280);
   --gray-200: oklch(0.82 0.0093 286);
   --gray-100: oklch(0.94 0.0093 286);
   --gray-050: oklch(0.97 0.0093 286);
-  --white: oklch(1 0 0);
-  --green: oklch(53% 0.16 138);
 
-  --text-primary: var(--gray-900);
+  --white: oklch(1 0 0);
+
+  --lime-300: oklch(0.69 0.17 132);
+  --lime-400: oklch(0.44 0.17 132);
+
+  --text-primary: var(--gray-950);
   --text-secondary: var(--gray-600);
   --text-tertiary: var(--gray-400);
   --text-placeholder: var(--gray-300);
+  --text-accent: var(--lime-300);
+  --text-accent-solid: var(--lime-400);
 
   --bg-primary: var(--gray-050);
   --bg-secondary: var(--white);
-  --bg-primary-solid: var(--gray-900);
+  --bg-primary-solid: var(--gray-950);
+  --bg-secondary-solid: var(--gray-900);
+  --bg-disabled: var(--gray-400);
 
-  --fg-accent: var(--green);
-  --fg-primary-solid: var(--gray-600);
+  --fg-accent: var(--lime-300);
+  --fg-primary: var(--gray-600);
+  --fg-primary-solid: var(--gray-950);
 
   --fw-light: 300;
   --fw-regular: 400;
@@ -31,8 +40,9 @@
   --border-radius-lg: 24px;
 
   --border-primary: var(--gray-100);
-  --border-primary-solid: var(--gray-900);
+  --border-primary-solid: var(--gray-950);
   --border-secondary: var(--gray-200);
+  --border-accent: var(--lime-300);
 
   --shadow:
     0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02),
