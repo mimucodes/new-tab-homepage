@@ -46,7 +46,7 @@
   },
   {
     "id": "10",
-    "text": "The Moon is slowly drifting away from Earth at 3.8 cm (1.5 inches) per year.",
+    "text": "The Moon is slowly drifting away from Earth at 3.8 cm (1.5 in) per year.",
     "category": "space"
   },
   {
@@ -96,7 +96,7 @@
   },
   {
     "id": "20",
-    "text": "In the 17th-century, condoms were commonly made from animal intestines, particularly from sheep, calves, or goats.",
+    "text": "In the 17th century, condoms were commonly made from animal intestines, particularly from sheep, calves, or goats.",
     "category": "history"
   },
   {
@@ -131,7 +131,7 @@
   },
   {
     "id": "27",
-    "text": "The cornea is the only part of the human body with no blood supply—it receives oxygen directly from the air.",
+    "text": "The cornea has no blood vessels—it gets most of its oxygen directly from the air.",
     "category": "body"
   },
   {
@@ -141,12 +141,12 @@
   },
   {
     "id": "29",
-    "text": "Blue whales have the largest heart of any animal on Earth, weighing about 181 kg (400 pounds).",
+    "text": "Blue whales have the largest heart of any animal on Earth, weighing about 181 kg (400 lb).",
     "category": "animals"
   },
   {
     "id": "30",
-    "text": "Mars has the tallest volcano in our solar system — Olympus Mons — rising about 22 km (14 mi) high.",
+    "text": "Mars has the tallest volcano in our solar system—Olympus Mons—rising about 22 km (14 mi) high.",
     "category": "space"
   },
   {
@@ -166,7 +166,7 @@
   },
   {
     "id": "34",
-    "text": "The coldest known place in the universe is the Boomerang Nebula, which has a temperature of about −272°C (-458°F).",
+    "text": "The coldest known place in the universe is the Boomerang Nebula, which has a temperature of about −272°C (−458°F).",
     "category": "space"
   },
   {
@@ -311,7 +311,7 @@
   },
   {
     "id": "63",
-    "text": "The Marree Man, a 3.5km geoglyph of a hunter, appeared mysteriously in the Australian desert in 1998.",
+    "text": "The Marree Man, a 3.5 km (2.2 mi) geoglyph of a hunter, appeared mysteriously in the Australian desert in 1998.",
     "category": "mystery"
   },
   {
@@ -336,12 +336,12 @@
   },
   {
     "id": "68",
-    "text": "Hydrogen makes up roughly 75% of the observable universe.",
+    "text": "Hydrogen makes up roughly 75% of all normal matter in the universe.",
     "category": "chemistry"
   },
   {
     "id": "69",
-    "text": "The snailfish is the deepest recorded fish species, which was filmed at a depth of 8,336 meters (27,349 feet).",
+    "text": "The snailfish is the deepest recorded fish species, which was filmed at a depth of 8,336 m (27,349 ft).",
     "category": "animals"
   },
   {
@@ -376,7 +376,7 @@
   },
   {
     "id": "76",
-    "text": "The smell of metal is actually the scent of your skin corroding the metal.",
+    "text": "The smell we associate with metal is mostly the result of skin oils breaking down on contact with metal.",
     "category": "chemistry"
   },
   {
@@ -391,7 +391,7 @@
   },
   {
     "id": "79",
-    "text": "The oldest known DNA ever found on earth dates back approximately 2 million years.",
+    "text": "The oldest known DNA ever found on Earth dates back approximately 2 million years.",
     "category": "biology"
   },
   {
@@ -401,7 +401,7 @@
   },
   {
     "id": "81",
-    "text": "Voyager 1 is the most distant human-made object, located over 25.2 billion km (15.6 billion mi) away and counting.",
+    "text": "Voyager 1 is the first human-made object to reach one light-day away from Earth.",
     "category": "space"
   },
   {
@@ -421,12 +421,12 @@
   },
   {
     "id": "85",
-    "text": "Hyperion, the tallest tree on Earth, towers over the Statue of Liberty by about 22 meters.",
+    "text": "Hyperion, the tallest tree on Earth, towers over the Statue of Liberty by about 22 m (72 ft).",
     "category": "nature"
   },
   {
     "id": "86",
-    "text": "The fastest known neutron star spins 716 times per second—faster than most kitchen blenders.",
+    "text": "The word 'astronaut' comes from the Greek astron ('star') and nautēs ('sailor'), literally meaning 'star sailor'.",
     "category": "space"
   },
   {
@@ -441,7 +441,7 @@
   },
   {
     "id": "89",
-    "text": "The whale shark is the largest fish in the world, capable of growing up to 18 meters (60 feet).",
+    "text": "The whale shark is the largest fish in the world, capable of growing up to 18 m (60 ft).",
     "category": "animals"
   },
   {
@@ -456,7 +456,7 @@
   },
   {
     "id": "92",
-    "text": "Antarctica is the only continent without reptiles or snakes.",
+    "text": "Antarctica is the only continent with no native reptiles.",
     "category": "geography"
   },
   {
@@ -481,7 +481,7 @@
   },
   {
     "id": "97",
-    "text": "Airlines typically require pilots to eat different meals to avoid both getting sick from potential food poisoning.",
+    "text": "Airlines typically have pilots eat different meals so they don't get food poisoning at the same time.",
     "category": "aviation"
   },
   {
@@ -553,5 +553,55 @@
     "id": "111",
     "text": "The name 'Velcro' is a portmanteau of the French words velours (velvet) and crochet (hook).",
     "category": "language"
+  },
+  {
+    "id": "112",
+    "text": "Florida carpenter ants amputate the infected legs of injured nestmates, saving about 90% of the treated ants.",
+    "category": "animals"
+  },
+  {
+    "id": "113",
+    "text": "Samples from asteroid Bennu contain all five nucleobases found in DNA and RNA, plus 14 of the 20 amino acids in proteins.",
+    "category": "space"
+  },
+  {
+    "id": "114",
+    "text": "A 476,000-year-old wooden structure found in Zambia is the oldest known evidence of woodworking, predating Homo sapiens.",
+    "category": "history"
+  },
+  {
+    "id": "115",
+    "text": "The colossal squid, known to science for 100 years, was filmed alive in the wild for the first time in 2025.",
+    "category": "animals"
+  },
+  {
+    "id": "116",
+    "text": "Kidney cells can store molecular information and recognize patterns in a way similar to brain cells.",
+    "category": "body"
+  },
+  {
+    "id": "117",
+    "text": "Comet 3I/ATLAS is only the third known object to pass through our solar system from outside it.",
+    "category": "space"
+  },
+  {
+    "id": "118",
+    "text": "Stressed plants emit ultrasonic sounds in response to lack of water or having their stems damaged.",
+    "category": "nature"
+  },
+  {
+    "id": "119",
+    "text": "Sydney's cockatoos have taught themselves to drink from public fountains by twisting the handle with their feet.",
+    "category": "animals"
+  },
+  {
+    "id": "120",
+    "text": "The largest digital camera ever built for astronomy is about the size of a small car and takes 3,200-megapixel photos.",
+    "category": "technology"
+  },
+  {
+    "id": "121",
+    "text": "You can't get farther from land than Point Nemo: 2,688 km from the nearest shore.",
+    "category": "earth"
   }
 ]
